@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --container: 1140px;
+}
+
+@layer base {
+  body {
+    @apply font-body text-ink bg-white antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading uppercase tracking-wide;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-container px-5 sm:px-6 lg:px-8;
+  }
+  /* Primary pill button — brand yellow */
+  .btn-yellow {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-yellow px-7 py-3
+           font-heading text-sm font-semibold uppercase tracking-wider text-chocolate
+           transition-transform duration-200 hover:scale-[1.03] hover:shadow-lg;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-cream/70 px-7 py-3
+           font-heading text-sm font-semibold uppercase tracking-wider text-cream
+           transition-colors duration-200 hover:bg-cream hover:text-chocolate;
+  }
+  .section-title {
+    @apply font-heading text-3xl font-bold uppercase tracking-wide text-cocoa-700 sm:text-4xl;
+  }
+}
+
+/* Chocolate texture used by the footer / about backgrounds */
+.bg-chocolate-texture {
+  background-color: #2a160c;
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(126, 90, 78, 0.35), transparent 55%),
+    radial-gradient(circle at 90% 100%, rgba(101, 64, 51, 0.45), transparent 50%),
+    linear-gradient(160deg, #3a1f10 0%, #220f07 100%);
+}
+
+/* hide scrollbar for carousels */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Honor prefers-reduced-motion across all animations (Reveal, marquee, ping, popup, hero, hover scales) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-marquee, .animate-ping { animation: none !important; }
+}
