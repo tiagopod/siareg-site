@@ -5,6 +5,7 @@ import Products from "@/components/Products";
 import About from "@/components/About";
 import Partners from "@/components/Partners";
 import Testimonials from "@/components/Testimonials";
+import MobileHome from "@/components/MobileHome";
 
 export const metadata: Metadata = {
   title: "Chocolates para Atacado e Revenda desde 2004",
@@ -66,12 +67,18 @@ export default function HomePage() {
       <h1 className="sr-only">
         Siareg Chocolates — Fábrica de Pão de Mel, Trufas e Chocolates para Atacado e Revenda desde 2004
       </h1>
-      <Hero />
-      <Channels />
-      <Products />
-      <About />
-      <Partners />
-      <Testimonials />
+      {/* Mobile: home no formato de app (estilo Mercado Livre) */}
+      <MobileHome />
+
+      {/* Desktop: layout original em seções */}
+      <div className="hidden lg:block">
+        <Hero />
+        <Channels />
+        <Products />
+        <About />
+        <Partners />
+        <Testimonials />
+      </div>
     </>
   );
 }

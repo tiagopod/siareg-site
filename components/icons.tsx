@@ -51,4 +51,17 @@ export const Close = (p: SVGProps<SVGSVGElement>) => (
   <svg {...base(p)}><path d="M6 6l12 12M18 6 6 18" /></svg>
 );
 
+export const Search = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></svg>
+);
+export const ChevronRight = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}><path d="m9 6 6 6-6 6" /></svg>
+);
+export const Home = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}><path d="m3 11 9-8 9 8" /><path d="M5 10v10h14V10" /></svg>
+);
+export const Grid = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}><rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" /><rect x="3" y="14" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" /></svg>
+);
+
 export const channelIcons = { store: Store, truck: Truck, cart: Cart } as const;
