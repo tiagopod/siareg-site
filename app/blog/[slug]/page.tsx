@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts, type BlogBlock } from "@/content/blog";
-import { site, wa, DEFAULT_WA_MESSAGE } from "@/content/site";
+import { site, salesWa } from "@/content/site";
 import PageHeader from "@/components/PageHeader";
 import JsonLd from "@/components/JsonLd";
 import { blogPosting, breadcrumbList } from "@/lib/jsonld";
@@ -123,7 +123,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
           <div className="mt-10 flex flex-wrap gap-4">
             <a
-              href={wa(site.whatsapp.commercial, DEFAULT_WA_MESSAGE)}
+              href={salesWa()}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-yellow"

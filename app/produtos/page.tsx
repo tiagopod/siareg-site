@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { productsIntro, productsByCategory } from "@/content/products";
 import { produtosPage } from "@/content/pages";
-import { site, wa, DEFAULT_WA_MESSAGE } from "@/content/site";
+import { site, salesWa } from "@/content/site";
 import PageHeader from "@/components/PageHeader";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbList } from "@/lib/jsonld";
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export default function ProdutosPage() {
-  const waLink = wa(site.whatsapp.commercial, DEFAULT_WA_MESSAGE);
+  const waLink = salesWa();
   const groups = productsByCategory();
 
   return (

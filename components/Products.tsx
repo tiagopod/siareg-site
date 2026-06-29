@@ -3,12 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { productsSection, homeCtas } from "@/content/home";
-import { site, wa, DEFAULT_WA_MESSAGE } from "@/content/site";
+import { salesWa } from "@/content/site";
 import Reveal from "./Reveal";
 import { Download, Pin } from "./icons";
 
 export default function Products() {
-  const waLink = wa(site.whatsapp.commercial, DEFAULT_WA_MESSAGE);
+  const waLink = salesWa();
 
   return (
     <section className="bg-white py-14 sm:py-20">

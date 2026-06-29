@@ -10,7 +10,7 @@
 
 import type { Metadata } from "next";
 import Image from "next/image";
-import { site, wa } from "@/content/site";
+import { site, salesWa } from "@/content/site";
 import { testimonials } from "@/content/testimonials";
 import {
   hero,
@@ -47,9 +47,9 @@ const WA_MSG_REVENDEDOR = "Olá! Quero me tornar revendedor Siareg. Podem me pas
 const WA_MSG_COTACAO = "Olá! Gostaria de uma cotação de produtos para revenda.";
 const WA_MSG_COMECAR = "Olá! Vi o site e quero começar a revender chocolates Siareg. Podem me ajudar?";
 
-const waRevendedor = wa(site.whatsapp.commercial, WA_MSG_REVENDEDOR);
-const waCotacao = wa(site.whatsapp.commercial, WA_MSG_COTACAO);
-const waComecar = wa(site.whatsapp.commercial, WA_MSG_COMECAR);
+const waRevendedor = salesWa(WA_MSG_REVENDEDOR);
+const waCotacao = salesWa(WA_MSG_COTACAO);
+const waComecar = salesWa(WA_MSG_COMECAR);
 
 // ─── Benefit icon map ────────────────────────────────────────────────────────
 function BenefitIcon({ icon, className }: { icon: string; className?: string }) {

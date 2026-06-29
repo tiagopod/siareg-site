@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { site, wa, DEFAULT_WA_MESSAGE } from "@/content/site";
+import { salesWa } from "@/content/site";
 import { Whatsapp } from "./icons";
 
 export default function FloatingWhatsApp() {
@@ -10,7 +10,7 @@ export default function FloatingWhatsApp() {
 
   return (
     <a
-      href={wa(site.whatsapp.commercial, DEFAULT_WA_MESSAGE)}
+      href={salesWa()}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Fale conosco no WhatsApp"

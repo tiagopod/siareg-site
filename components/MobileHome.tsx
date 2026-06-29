@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useReducedMotion } from "framer-motion";
 import { hero, homeCtas } from "@/content/home";
 import { getRootLpProducts, productHref } from "@/content/products";
-import { site, wa, DEFAULT_WA_MESSAGE } from "@/content/site";
+import { site, salesWa } from "@/content/site";
 import {
   ChevronRight,
   Download,
@@ -20,7 +20,7 @@ import {
   Grid,
 } from "./icons";
 
-const waLink = wa(site.whatsapp.commercial, DEFAULT_WA_MESSAGE);
+const waLink = salesWa();
 
 /** Atalhos circulares (estilo app) — usam a foto do produto como ícone. */
 const shortcuts: { label: string; href: string; image?: string; icon?: "catalog" | "all" }[] = [

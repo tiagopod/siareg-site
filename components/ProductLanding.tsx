@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProduct, products } from "@/content/products";
 import { getProductLp, type Benefit } from "@/content/produtos-lp";
-import { site, wa } from "@/content/site";
+import { site, salesWa } from "@/content/site";
 import { testimonials } from "@/content/testimonials";
 import JsonLd from "@/components/JsonLd";
 import ProductCard from "@/components/ProductCard";
@@ -137,7 +137,7 @@ export default function ProductLanding({ slug }: { slug: string }) {
   const waMessage = `Olá, gostaria de mais informações sobre ${product.name}${
     product.code ? ` (Cód. ${product.code})` : ""
   }. Tenho interesse em comprar no atacado.`;
-  const waLink = wa(site.whatsapp.commercial, waMessage);
+  const waLink = salesWa(waMessage);
 
   const images = [product.image, ...(product.gallery ?? [])].filter(Boolean) as string[];
 

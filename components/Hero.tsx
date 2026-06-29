@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { useReducedMotion } from "framer-motion";
 import { hero } from "@/content/home";
-import { site, wa, DEFAULT_WA_MESSAGE } from "@/content/site";
+import { salesWa } from "@/content/site";
 import { ArrowLeft, ArrowRight } from "./icons";
 
 export default function Hero() {
@@ -24,7 +24,7 @@ export default function Hero() {
     return () => clearInterval(t);
   }, [i, go, paused, reduce]);
 
-  const link = wa(site.whatsapp.commercial, DEFAULT_WA_MESSAGE);
+  const link = salesWa();
   const trackWidthPct = slides.length * 100;
   const stepPct = 100 / slides.length;
 

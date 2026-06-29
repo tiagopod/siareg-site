@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { popup } from "@/content/home";
-import { site, wa, DEFAULT_WA_MESSAGE } from "@/content/site";
+import { salesWa } from "@/content/site";
 import { Close } from "./icons";
 
 export default function Popup() {
@@ -41,7 +41,7 @@ export default function Popup() {
             <p className="mx-auto mt-3 max-w-xs font-body text-sm normal-case leading-relaxed tracking-normal text-cream/90">
               {popup.text}
             </p>
-            <a href={wa(site.whatsapp.promo, DEFAULT_WA_MESSAGE)} target="_blank" rel="noopener noreferrer" className="btn-yellow mt-6" onClick={close}>
+            <a href={salesWa()} target="_blank" rel="noopener noreferrer" className="btn-yellow mt-6" onClick={close}>
               {popup.ctaLabel}
             </a>
           </motion.div>

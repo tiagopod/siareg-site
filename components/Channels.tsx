@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import { channels, ctaCards } from "@/content/home";
-import { site, wa, DEFAULT_WA_MESSAGE } from "@/content/site";
+import { salesWa } from "@/content/site";
 import { channelIcons } from "./icons";
 import Reveal from "./Reveal";
 
 export default function Channels() {
-  const link = wa(site.whatsapp.commercial, DEFAULT_WA_MESSAGE);
+  const link = salesWa();
 
   return (
     <section className="bg-cream py-12 sm:py-16">

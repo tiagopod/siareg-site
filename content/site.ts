@@ -20,6 +20,13 @@ export const site = {
     commercial: "5511933376425", // hero, produtos e CTAs principais
     sales: "5511973880254", // telefone do rodapé — (11) 97388-0254
     promo: "5511933528905", // botão do popup "Clique Aqui"
+    // Equipe comercial — os leads do site são distribuídos entre estes 3 vendedores
+    // (rodízio + fixo por visitante via cookie). Ver salesWa() e /api/whatsapp.
+    sellers: [
+      "5511933528905", // (11) 93352-8905
+      "5511975833699", // (11) 97583-3699
+      "5511973880254", // (11) 97388-0254
+    ],
   },
 
   contact: {
@@ -69,7 +76,7 @@ export const site = {
   },
 } as const;
 
-/** Build a wa.me link with an optional pre-filled message. */
+/** Build a wa.me link with an optional pre-filled message (número fixo). */
 export function wa(number: string, message?: string) {
   const base = `https://wa.me/${number}`;
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
@@ -77,3 +84,13 @@ export function wa(number: string, message?: string) {
 
 export const DEFAULT_WA_MESSAGE =
   "Olá, gostaria de mais informações dos produtos";
+
+/**
+ * Link de contato comercial COM RODÍZIO entre os vendedores.
+ * Aponta para a rota interna /api/whatsapp, que escolhe um vendedor
+ * (rodízio para novos visitantes, fixo por visitante via cookie) e
+ * redireciona para o WhatsApp. Funciona inclusive sem JavaScript.
+ */
+export function salesWa(message: string = DEFAULT_WA_MESSAGE) {
+  return `/api/whatsapp?text=${encodeURIComponent(message)}`;
+}

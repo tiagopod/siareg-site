@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { products, getProduct, ROOT_LP_SLUGS } from "@/content/products";
-import { site, wa } from "@/content/site";
+import { site, salesWa } from "@/content/site";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import JsonLd from "@/components/JsonLd";
@@ -44,7 +44,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
   const waMessage = `Olá, gostaria de mais informações sobre o produto ${product.name}${
     product.code ? ` (Cód. ${product.code})` : ""
   }.`;
-  const waLink = wa(site.whatsapp.commercial, waMessage);
+  const waLink = salesWa(waMessage);
   const images = [product.image, ...(product.gallery ?? [])].filter(Boolean) as string[];
 
   const schemas = [

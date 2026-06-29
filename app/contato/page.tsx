@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { site, wa, DEFAULT_WA_MESSAGE } from "@/content/site";
+import { site, wa, salesWa, DEFAULT_WA_MESSAGE } from "@/content/site";
 import PageHeader from "@/components/PageHeader";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbList } from "@/lib/jsonld";
@@ -20,7 +20,9 @@ export const metadata: Metadata = {
 };
 
 export default function ContatoPage() {
-  const waCommercial = wa(site.whatsapp.commercial, DEFAULT_WA_MESSAGE);
+  // Botão genérico de WhatsApp → distribui o lead entre os vendedores.
+  const waLead = salesWa();
+  // Quando o número aparece como texto, o link aponta para esse mesmo número (linha principal).
   const waSales = wa(site.whatsapp.sales, DEFAULT_WA_MESSAGE);
 
   return (
@@ -44,7 +46,7 @@ export default function ContatoPage() {
           <Reveal delay={0.1}>
             <div className="mx-auto mt-10 flex max-w-md flex-col gap-4 sm:flex-row">
               <a
-                href={waCommercial}
+                href={waLead}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex flex-1 items-center justify-center gap-3 rounded-full bg-whatsapp px-8 py-5 font-heading text-base font-semibold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-[1.03] hover:bg-whatsapp-hover hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-yellow"
@@ -113,7 +115,7 @@ export default function ContatoPage() {
 
           <Reveal delay={0.14}>
             <a
-              href={waCommercial}
+              href={waSales}
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-3 rounded-2xl bg-white p-8 shadow-sm transition hover:shadow-md"

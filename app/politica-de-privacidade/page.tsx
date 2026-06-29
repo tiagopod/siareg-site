@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { privacidade } from "@/content/privacidade";
-import { site, wa, DEFAULT_WA_MESSAGE } from "@/content/site";
+import { site, salesWa } from "@/content/site";
 import PageHeader from "@/components/PageHeader";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbList } from "@/lib/jsonld";
@@ -63,7 +63,7 @@ export default function PoliticaPrivacidadePage() {
           {/* Contact CTAs */}
           <div className="mt-12 flex flex-wrap gap-4 border-t border-black/5 pt-8">
             <a
-              href={wa(site.whatsapp.commercial, DEFAULT_WA_MESSAGE)}
+              href={salesWa()}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3 font-heading text-sm font-semibold uppercase tracking-wider text-white shadow-md transition-transform hover:scale-[1.03]"

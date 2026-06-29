@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { campanhaData } from "@/content/campanha-maes";
 import { testimonials } from "@/content/testimonials";
-import { site, wa } from "@/content/site";
+import { site, salesWa } from "@/content/site";
 import Reveal from "@/components/Reveal";
 import { Whatsapp, Download, ArrowRight } from "@/components/icons";
 
@@ -29,15 +29,11 @@ export const metadata: Metadata = {
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
-const waHero = wa(
-  site.whatsapp.commercial,
+const waHero = salesWa(
   "Olá! Vim pela campanha de Dia das Mães e gostaria de saber mais sobre os presentes disponíveis."
 );
 
-const waCatalog = wa(
-  site.whatsapp.commercial,
-  campanhaData.finalCta.catalogMessage
-);
+const waCatalog = salesWa(campanhaData.finalCta.catalogMessage);
 
 const badgeClasses: Record<string, string> = {
   gold: "bg-gold text-white",
@@ -227,7 +223,7 @@ export default function CampanhaPage() {
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {kits.map((kit, i) => {
-              const waKitLink = wa(site.whatsapp.commercial, kit.waMessage);
+              const waKitLink = salesWa(kit.waMessage);
               return (
                 <Reveal key={kit.slug} delay={i * 0.08}>
                   <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-md ring-1 ring-rose/10 transition hover:shadow-xl hover:ring-rose/30">

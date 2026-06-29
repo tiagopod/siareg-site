@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { site, wa, DEFAULT_WA_MESSAGE } from "@/content/site";
+import { salesWa } from "@/content/site";
 import { Whatsapp } from "@/components/icons";
 
 export default function NotFound() {
@@ -29,7 +29,7 @@ export default function NotFound() {
             Ver produtos
           </Link>
           <a
-            href={wa(site.whatsapp.commercial, DEFAULT_WA_MESSAGE)}
+            href={salesWa()}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3 font-heading text-sm font-semibold uppercase tracking-wider text-white transition hover:bg-[#1ebe5d]"
