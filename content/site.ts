@@ -15,6 +15,9 @@ export const site = {
   producedBy: "Many Marketing",
   year: 2026,
 
+  /** Container do Google Tag Manager (GA4 e demais tags são disparados por dentro dele). */
+  gtmId: "GTM-PFNKZQ43",
+
   /** WhatsApp / phone numbers (digits only) */
   whatsapp: {
     commercial: "5511933376425", // hero, produtos e CTAs principais

@@ -46,6 +46,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className={`${oswald.variable} ${poppins.variable} ${italianno.variable}`}>
       <head>
+        {/*
+          Google Tag Manager — carrega em todas as páginas via este layout raiz.
+          Script inline (não `next/script`) de propósito: assim o snippet vai no HTML
+          renderizado no servidor e roda sem depender da hidratação do React.
+          O GA4 é disparado por dentro do container, não precisa de tag separada.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${site.gtmId}');`,
+          }}
+        />
+
         {/* No-JS fallback: keep Reveal-wrapped sections visible when scripts don't execute (crawlers, headless, JS error) */}
         <noscript>
           <style
@@ -56,6 +72,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </noscript>
       </head>
       <body>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${site.gtmId}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
         <JsonLd data={website()} />
         <Header />
         <main>{children}</main>
