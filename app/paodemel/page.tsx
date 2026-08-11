@@ -7,7 +7,7 @@ const slug = "paodemel";
 const product = getProduct(slug)!;
 
 export const metadata: Metadata = {
-  title: "Pão de Mel Artesanal para Atacado e Revenda",
+  title: "Pão de Mel Artesanal para Atacado",
   description:
     "Pão de Mel tradicional Siareg — receita original desde 2004, com especiarias e chocolate fino. Compre no atacado direto da fábrica em Guararema SP. Cód. 100.",
   alternates: { canonical: `/${slug}` },

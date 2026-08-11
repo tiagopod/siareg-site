@@ -9,7 +9,7 @@ import Partners from "@/components/Partners";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Sobre a Siareg | Fábrica de Chocolates em Guararema SP desde 2004",
+  title: "Fábrica de Chocolates desde 2004",
   description:
     "Conheça a história da Siareg Chocolates, fábrica fundada em 2004 em Guararema SP. Receitas artesanais de Pão de Mel, Trufas e Bombons. Missão, visão e valores de uma marca de tradição.",
   alternates: { canonical: "/sobre-nos" },

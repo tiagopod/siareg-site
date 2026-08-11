@@ -7,7 +7,7 @@ const slug = "palitinhos-chocolate";
 const product = getProduct(slug)!;
 
 export const metadata: Metadata = {
-  title: "Palitinhos de Chocolate para Atacado e Revenda",
+  title: "Palitinhos de Chocolate no Atacado",
   description:
     "Palitinhos de Chocolate crocantes da Siareg — snack irresistível para revender. Preço de fábrica, entrega em SP. Cód. 118. Ideal para caixa e impulso de compra.",
   alternates: { canonical: `/${slug}` },

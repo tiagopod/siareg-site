@@ -9,7 +9,10 @@ export const site = {
   tagline: "Momentos Doces e Delícias de Chocolate desde 2004",
   description:
     "Fábrica de chocolates com tradição desde 2004. Pão de mel, trufas, bombons e muito mais para atacadistas, distribuidores e mercados.",
-  url: "https://siaregchocolates.com.br",
+  // Host canônico: o Vercel serve www e redireciona o apex (308).
+  // Esta constante alimenta metadataBase, todos os canonicals, sitemap, robots e JSON-LD —
+  // trocar o host aqui reapontaria o site inteiro, então ela precisa bater com o domínio servido.
+  url: "https://www.siaregchocolates.com.br",
   logo: "/images/brand/logo.png",
   favicon: "/images/brand/favicon.png",
   producedBy: "Many Marketing",

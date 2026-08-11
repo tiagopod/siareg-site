@@ -7,7 +7,7 @@ const slug = "paodemel-mini";
 const product = getProduct(slug)!;
 
 export const metadata: Metadata = {
-  title: "Mini Pão de Mel para Atacado, Eventos e Revenda",
+  title: "Mini Pão de Mel para Atacado",
   description:
     "Mini Pão de Mel Siareg — porção individual perfeita para eventos, festas e presentes. Compre no atacado direto da fábrica em Guararema SP. Cód. 124.",
   alternates: { canonical: `/${slug}` },

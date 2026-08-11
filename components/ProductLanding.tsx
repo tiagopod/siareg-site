@@ -157,17 +157,16 @@ export default function ProductLanding({ slug }: { slug: string }) {
       "@type": "Brand",
       name: "Siareg Chocolates",
     },
-    offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/InStock",
-      priceCurrency: "BRL",
-      url: `${site.url}/${slug}`,
-      seller: {
-        "@type": "Organization",
-        name: "Siareg Chocolates",
-      },
+    // Sem bloco `offers`: catálogo B2B não publica preço, e o Google invalida
+    // uma Offer sem `price`/`priceSpecification` — um Offer incompleto derruba
+    // o rich result inteiro do produto. Quando houver faixa de preço pública,
+    // reintroduzir com priceSpecification (não só priceCurrency).
+    manufacturer: {
+      "@type": "Organization",
+      name: "Siareg Chocolates",
+      url: site.url,
     },
-    ...(product.code ? { productID: product.code } : {}),
+    ...(product.code ? { productID: product.code, sku: product.code } : {}),
   };
 
   // Schema.org adicional: trilha de navegação + FAQ (rich results)
@@ -276,7 +275,8 @@ export default function ProductLanding({ slug }: { slug: string }) {
 
           <div>
             <div>
-              <h2 className="section-title">{product.name}</h2>
+              {/* O H1 do hero já carrega o nome puro; este H2 fica com o termo comercial. */}
+              <h2 className="section-title">{product.name} no atacado para revenda</h2>
 
               <div className="mt-5 space-y-4">
                 {product.description.map((para, i) => (

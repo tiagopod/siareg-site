@@ -43,6 +43,35 @@ function formatDate(iso?: string) {
   }).format(d);
 }
 
+/**
+ * Links internos na prosa, escritos como `[texto](/rota)` no content/blog.ts.
+ * Sem isto o corpo do post é texto puro e nenhum artigo consegue apontar para
+ * as páginas de produto — que é onde a leitura vira pedido.
+ */
+const LINK_RE = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+
+function withLinks(text: string) {
+  const parts: React.ReactNode[] = [];
+  let last = 0;
+  for (const m of text.matchAll(LINK_RE)) {
+    const at = m.index ?? 0;
+    if (at > last) parts.push(text.slice(last, at));
+    const [, label, href] = m;
+    parts.push(
+      <Link
+        key={`${at}-${href}`}
+        href={href}
+        className="font-medium text-cocoa-700 underline decoration-gold decoration-2 underline-offset-4 transition-colors hover:text-chocolate hover:decoration-chocolate"
+      >
+        {label}
+      </Link>,
+    );
+    last = at + m[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts.length ? parts : text;
+}
+
 function Block({ block }: { block: BlogBlock }) {
   switch (block.type) {
     case "h2":
@@ -53,7 +82,7 @@ function Block({ block }: { block: BlogBlock }) {
       return (
         <ul className="mt-4 list-disc space-y-1 pl-5 font-body text-base normal-case leading-relaxed tracking-normal text-ink/75">
           {block.items.map((item, i) => (
-            <li key={i}>{item}</li>
+            <li key={i}>{withLinks(item)}</li>
           ))}
         </ul>
       );
@@ -61,7 +90,7 @@ function Block({ block }: { block: BlogBlock }) {
     default:
       return (
         <p className="mt-4 font-body text-base normal-case leading-relaxed tracking-normal text-ink/75">
-          {block.text}
+          {withLinks(block.text)}
         </p>
       );
   }
@@ -79,6 +108,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       description: post.excerpt,
       image: post.image,
       datePublished: post.date,
+      dateModified: post.updatedAt,
       url: `/blog/${params.slug}`,
     }),
     breadcrumbList([

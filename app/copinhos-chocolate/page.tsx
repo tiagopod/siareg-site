@@ -7,7 +7,7 @@ const slug = "copinhos-chocolate";
 const product = getProduct(slug)!;
 
 export const metadata: Metadata = {
-  title: "Copinhos de Chocolate para Atacado — Licor e Recheio",
+  title: "Copinhos de Chocolate para Atacado",
   description:
     "Copinhos de Chocolate Siareg para licores, recheios e sobremesas. Ideais para eventos e festas. Cód. 131. Compre no atacado direto da fábrica em Guararema SP.",
   alternates: { canonical: `/${slug}` },

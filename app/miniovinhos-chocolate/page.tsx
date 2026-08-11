@@ -7,7 +7,7 @@ const slug = "miniovinhos-chocolate";
 const product = getProduct(slug)!;
 
 export const metadata: Metadata = {
-  title: "Mini Ovinhos de Chocolate para Atacado e Revenda",
+  title: "Mini Ovinhos de Chocolate no Atacado",
   description:
     "Mini Ovinhos de Chocolate Siareg em pote — perfeitos para a Páscoa e datas especiais. Compre no atacado direto da fábrica em Guararema SP com preço de fábrica.",
   alternates: { canonical: `/${slug}` },

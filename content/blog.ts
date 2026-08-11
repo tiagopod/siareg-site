@@ -4,6 +4,11 @@
  * Real posts recreated from siaregchocolates.com.br. Each post has a typed
  * `body` array of blocks ({ type: "h2" | "h3" | "p" | "ul" }) so the prose
  * stays easy to edit. Images live in /public/images/blog/.
+ *
+ * LINKS INTERNOS: dentro de `p` e de itens de `ul`, escreva `[texto](/rota)`.
+ * O renderizador converte em <Link>. Cada artigo deve apontar para pelo menos
+ * uma página de produto ou para /siareg-comercial-m — é o que transforma o
+ * blog em tráfego qualificado em vez de texto isolado.
  */
 
 export type BlogBlock =
@@ -17,13 +22,17 @@ export type BlogPost = {
   title: string;
   excerpt: string;
   date?: string;
+  /** Data da última revisão (ISO). Preencha ao reescrever um artigo — alimenta
+   *  o `dateModified` do schema, que sem isso repete a data de publicação e
+   *  sinaliza conteúdo nunca atualizado. */
+  updatedAt?: string;
   image: string;
   body: BlogBlock[];
 };
 
 export const blogHero = {
   title: "Blog",
-  subtitle: "Novidades, dicas de revenda e inspirações com a Siareg Chocolates.",
+  subtitle: "Margem, giro e escolha de fornecedor: conteúdo para quem revende chocolate.",
 } as const;
 
 export const blogPosts: BlogPost[] = [
@@ -67,7 +76,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Por serem produtos de forte aceitação, costumam apresentar boa saída durante todo o ano." },
       { type: "h3", text: "Aumente suas vendas com chocolates no atacado" },
       { type: "p", text: "Se você busca produtos de alta demanda, excelente margem e forte potencial de revenda, investir em chocolates é uma ótima escolha." },
-      { type: "p", text: "👉 Entre em contato, solicite seu catálogo e comece agora a comprar chocolates no atacado direto do fornecedor." },
+      { type: "p", text: "Conheça o [catálogo completo de chocolates para revenda](/produtos) ou [fale com o time comercial](/siareg-comercial-m) e comece agora a comprar no atacado direto da fábrica." },
     ],
   },
   {
@@ -107,7 +116,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Seu formato prático e preço acessível favorecem vendas rápidas e recorrentes." },
       { type: "h3", text: "Comece agora a vender trufas de chocolate" },
       { type: "p", text: "Se você busca um produto de alta saída e excelente margem, as trufas são uma escolha inteligente para ampliar seus resultados." },
-      { type: "p", text: "👉 Entre em contato, solicite seu catálogo e encontre as melhores trufas de chocolate para vender no seu negócio." },
+      { type: "p", text: "Veja as [trufas sortidas Siareg](/trufas-sortidas) e o [display de trufas para o PDV](/display-trufa) — as duas linhas mais pedidas por quem revende." },
     ],
   },
   {
@@ -156,7 +165,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Ajuda a gerar mais oportunidades de venda e aumentar o ticket médio." },
       { type: "h3", text: "Escolha um fornecedor de chocolates para revenda e venda mais" },
       { type: "p", text: "Se você quer ampliar seu mix, aumentar o giro e trabalhar com produtos de excelente aceitação, escolher o fornecedor certo é essencial." },
-      { type: "p", text: "👉 Entre em contato, solicite seu catálogo e encontre um fornecedor de chocolates para revenda preparado para atender o seu negócio." },
+      { type: "p", text: "Veja a [linha completa para revenda](/produtos) e [fale com um vendedor](/siareg-comercial-m) para receber a tabela de atacado." },
     ],
   },
   {
@@ -206,23 +215,12 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Ajuda a gerar mais oportunidades de venda e melhora a rentabilidade do negócio." },
       { type: "p", text: "Aumente as vendas do seu mercado com produtos certos" },
       { type: "p", text: "Se você quer vender mais e trabalhar com produtos de forte aceitação, investir em doces de alto giro é uma excelente estratégia." },
-      { type: "p", text: "Entre em contato, solicite seu catálogo e encontre os melhores doces de alto giro para mercado." },
-    ],
-  },
-  {
-    slug: "pao-de-mel-para-revenda-2",
-    title: "Pão de Mel para Revenda",
-    excerpt: "Pão de Mel para Revenda: conheça as soluções da Siareg Chocolates para o seu negócio.",
-    date: "2026-05-15",
-    image: "/images/blog/blog-featured.png",
-    body: [
-      { type: "p", text: "Pão de Mel para Revenda: conheça as soluções da Siareg Chocolates para o seu negócio." },
-      { type: "p", text: "Entre em contato com nosso time comercial e solicite seu catálogo e orçamento." },
+      { type: "p", text: "O [pão de mel tradicional](/paodemel) e o [mini pão de mel](/paodemel-mini) são os dois campeões de giro no varejo alimentar — vale começar por eles." },
     ],
   },
   {
     slug: "fabrica-de-pao-de-mel-2",
-    title: "Fábrica de Pão de Mel",
+    title: "Fábrica de Pão de Mel: Como Escolher o Fornecedor",
     excerpt: "Se você busca um parceiro confiável para abastecer seu negócio com produtos de alta saída, contar com uma fábrica de pão de mel estruturada faz toda a diferença.",
     date: "2026-04-09",
     image: "/images/blog/blog-featured.png",
@@ -257,7 +255,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Isso traz mais segurança para quem trabalha com doces para revenda e precisa manter o fluxo de vendas ativo." },
       { type: "h3", text: "Trabalhe com uma fábrica de pão de mel e aumente seus resultados" },
       { type: "p", text: "Se você quer crescer no mercado de revenda, contar com uma fábrica estruturada é um passo essencial." },
-      { type: "p", text: "👉 Entre em contato, solicite seu catálogo e comece agora a comprar direto de uma fábrica de pão de mel confiável." },
+      { type: "p", text: "Conheça o [pão de mel Siareg](/paodemel), feito na nossa fábrica em Guararema, e [solicite a tabela de atacado](/siareg-comercial-m)." },
     ],
   },
   {
@@ -299,7 +297,7 @@ export const blogPosts: BlogPost[] = [
       { type: "ul", items: ["Qualidade constante", "Reposição rápida", "Preços competitivos", "Segurança na operação"] },
       { type: "h3", text: "Comece agora a revender e aumentar seus resultados" },
       { type: "p", text: "Se você quer saber o que vender para ganhar dinheiro, apostar em produtos com alto giro e boa margem é a melhor estratégia." },
-      { type: "p", text: "👉 Entre em contato, solicite seu catálogo e comece agora a trabalhar com produtos para revenda que dão lucro." },
+      { type: "p", text: "Compare a margem de cada linha no [catálogo de produtos](/produtos) e [peça um orçamento para revenda](/siareg-comercial-m)." },
     ],
   },
   {
@@ -337,12 +335,12 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Por serem acessíveis e desejadas, as trufas garantem vendas constantes ao longo do dia." },
       { type: "h3", text: "Escolha um fornecedor de trufas e aumente seus resultados" },
       { type: "p", text: "Se você quer trabalhar com um produto que realmente vende, escolher o fornecedor certo é essencial." },
-      { type: "p", text: "👉 Entre em contato, solicite seu catálogo e comece agora a comprar com um fornecedor de trufas confiável e preparado para atender seu negócio." },
+      { type: "p", text: "Conheça as [trufas sortidas](/trufas-sortidas) e a [trufa em pote](/trufa-pote) para venda por peso — e [fale com o comercial](/siareg-comercial-m)." },
     ],
   },
   {
     slug: "pao-de-mel-no-atacado-2",
-    title: "Pão de Mel no Atacado",
+    title: "Pão de Mel no Atacado: Margem e Giro na Revenda",
     excerpt: "Se você busca um produto com alta saída, excelente aceitação e ótimo potencial de lucro, investir em pão de mel no atacado é uma das melhores decisões para o seu negócio.",
     date: "2026-04-07",
     image: "/images/blog/blog-featured.png",
@@ -373,7 +371,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h3", text: "Solicite seu pedido e comece a revender" },
       { type: "p", text: "Se você quer trabalhar com um produto que realmente vende, o pão de mel é uma escolha segura." },
       { type: "p", text: "Invista em um parceiro confiável, com produção padronizada e capacidade de entrega, e leve para o seu negócio um produto que une qualidade, sabor e rentabilidade." },
-      { type: "p", text: "👉 Entre em contato, solicite o catálogo e comece agora a comprar pão de mel no atacado direto da fábrica." },
+      { type: "p", text: "Veja as opções de [pão de mel tradicional](/paodemel) e [mini pão de mel](/paodemel-mini) e peça a tabela de atacado direto da fábrica." },
     ],
   },
   {
@@ -412,7 +410,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Isso garante um fluxo constante de vendas e maior previsibilidade de faturamento." },
       { type: "h3", text: "Comece agora a revender trufas e aumentar seus resultados" },
       { type: "p", text: "Se você quer trabalhar com um produto de fácil venda e alto giro, as trufas são uma excelente escolha." },
-      { type: "p", text: "👉 Entre em contato, solicite seu catálogo e comece agora a comprar trufas para revenda direto do fornecedor." },
+      { type: "p", text: "Comece pelas [trufas sortidas](/trufas-sortidas) ou pelo [display pronto para o balcão](/display-trufa) e [solicite seu orçamento](/siareg-comercial-m)." },
     ],
   },
   {
@@ -446,12 +444,12 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "A combinação de preço acessível + desejo imediato faz com que esse produto tenha alto giro e excelente performance." },
       { type: "h3", text: "Comece agora a revender barrinhas e aumente suas vendas" },
       { type: "p", text: "Se você busca um produto simples, lucrativo e com grande aceitação, as barrinhas de chocolate são uma escolha inteligente." },
-      { type: "p", text: "👉 Entre em contato, solicite seu catálogo e comece agora a comprar barrinhas de chocolate para revenda direto do fornecedor." },
+      { type: "p", text: "Veja os [palitinhos de chocolate](/palitinhos-chocolate), campeões de compra por impulso no caixa, e o [catálogo completo](/produtos)." },
     ],
   },
   {
     slug: "pao-de-mel-no-atacado",
-    title: "Pão de Mel no Atacado",
+    title: "Pão de Mel no Atacado: Diferenciais Siareg",
     excerpt: "Se você busca pão de mel no atacado com qualidade consistente, excelente aceitação e alto potencial de venda, a Siareg é a escolha certa para o seu negócio.",
     date: "2026-03-21",
     image: "/images/blog/blog-featured.png",
@@ -474,7 +472,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "Solicite seu orçamento agora" },
       { type: "h3", text: "Está pronto para incluir um produto de alto potencial no seu portfólio?" },
       { type: "p", text: "📲 Entre em contato com nosso time comercial e solicite seu pedido de pão de mel no atacado." },
-      { type: "p", text: "👉 Fale com a Siareg e leve mais sabor e resultado para o seu negócio." },
+      { type: "p", text: "Conheça o [pão de mel Siareg](/paodemel) e [fale com um vendedor](/siareg-comercial-m) para receber condições de atacado." },
     ],
   },
   {
@@ -518,12 +516,12 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "Comece agora a revender pão de mel Siareg" },
       { type: "h3", text: "Está pronto para trabalhar com um produto que realmente vende?" },
       { type: "p", text: "📲 Entre em contato com nosso time e solicite condições para pão de mel para revenda." },
-      { type: "p", text: "👉 Leve mais sabor, mais giro e mais lucro para o seu negócio com a Siareg." },
+      { type: "p", text: "Escolha entre o [pão de mel tradicional](/paodemel) e o [mini pão de mel](/paodemel-mini) — e [peça sua tabela de atacado](/siareg-comercial-m)." },
     ],
   },
   {
     slug: "fabrica-de-pao-de-mel",
-    title: "Fábrica de Pão de Mel",
+    title: "Fábrica de Pão de Mel Siareg: Estrutura e Capacidade",
     excerpt: "Se você procura uma fábrica de pão de mel confiável, com capacidade produtiva, qualidade consistente e produtos que realmente vendem, a Siareg é a parceira ideal para o seu…",
     date: "2026-03-07",
     image: "/images/blog/blog-featured.png",
@@ -558,7 +556,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "Solicite seu orçamento direto com a fábrica" },
       { type: "h3", text: "Quer comprar direto de uma fábrica de pão de mel confiável e preparada para atender seu negócio?" },
       { type: "p", text: "📲 Entre em contato com a Siareg e solicite seu orçamento." },
-      { type: "p", text: "👉 Produção de qualidade, entrega consistente e produtos que vendem — isso é Siareg." },
+      { type: "p", text: "Veja o [pão de mel produzido na nossa fábrica](/paodemel) e [solicite um orçamento para revenda](/siareg-comercial-m)." },
     ],
   },
 ];

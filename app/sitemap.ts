@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
 import { blogPosts } from "@/content/blog";
 import { products, productHref, ROOT_LP_SLUGS } from "@/content/products";
+import { site } from "@/content/site";
 
-const BASE = "https://siaregchocolates.com.br";
+const BASE = site.url;
 const rootSlugs = ROOT_LP_SLUGS as readonly string[];
 
 export default function sitemap(): MetadataRoute.Sitemap {

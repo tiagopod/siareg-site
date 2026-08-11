@@ -4,12 +4,13 @@ import PageHeader from "@/components/PageHeader";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbList } from "@/lib/jsonld";
 import Reveal from "@/components/Reveal";
+import QuoteForm from "@/components/QuoteForm";
 import { Mail, Pin, Whatsapp } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Contato | WhatsApp e E-mail",
+  title: "Contato e Orçamento de Atacado",
   description:
-    "Fale com a Siareg Chocolates pelo WhatsApp ou e-mail. Atendimento rápido para atacadistas, distribuidores e revendedores de chocolate em todo o Brasil.",
+    "Peça orçamento de atacado à Siareg Chocolates pelo formulário ou WhatsApp. Atendimento para atacadistas, distribuidores, mercados e revendedores em todo o Brasil.",
   alternates: { canonical: "/contato" },
   openGraph: {
     title: "Contato | Siareg Chocolates",
@@ -74,6 +75,26 @@ export default function ContatoPage() {
                 {site.contact.phoneDisplay}
               </a>
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Orçamento qualificado — o formulário que a conta de Ads espera medir */}
+      <section className="bg-cream-200 py-14 sm:py-20">
+        <div className="container-x mx-auto max-w-2xl">
+          <Reveal>
+            <h2 className="font-heading text-2xl font-bold uppercase tracking-wider text-cocoa-700 sm:text-3xl">
+              Peça seu orçamento de atacado
+            </h2>
+            <p className="mt-3 font-body text-base normal-case leading-relaxed tracking-normal text-muted">
+              Cinco campos e um vendedor te responde no WhatsApp já sabendo do que
+              você precisa.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="mt-8 rounded-2xl bg-white p-6 shadow-sm sm:p-8">
+              <QuoteForm />
+            </div>
           </Reveal>
         </div>
       </section>

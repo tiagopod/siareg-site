@@ -7,7 +7,7 @@ const slug = "blister-coracao-trufa";
 const product = getProduct(slug)!;
 
 export const metadata: Metadata = {
-  title: "Blister Coração Trufa para Atacado e Revenda",
+  title: "Blister Coração Trufa no Atacado",
   description:
     "Blister Coração com Trufa Siareg — presente elegante para datas especiais. Alta percepção de valor, ideal para revenda. Compre no atacado direto da fábrica. Cód. 128.",
   alternates: { canonical: `/${slug}` },

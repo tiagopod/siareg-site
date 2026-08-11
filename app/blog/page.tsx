@@ -9,14 +9,16 @@ import { breadcrumbList } from "@/lib/jsonld";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Blog | Receitas e Dicas de Chocolate",
+  // Os 15 artigos são todos B2B de revenda. Prometer "receitas" no título atraía
+  // exatamente o público B2C que a conta de mídia paga para não atrair.
+  title: "Blog para Revendedores de Chocolate",
   description:
-    "Artigos sobre chocolates artesanais, receitas, dicas para revendedores e novidades da Siareg Chocolates. Fábrica em Guararema SP desde 2004.",
+    "Conteúdo para quem revende chocolate: margem, giro, escolha de fornecedor e mix de produtos. Da fábrica Siareg, em Guararema SP, desde 2004.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog Siareg Chocolates | Receitas e Dicas",
+    title: "Blog para Revendedores | Siareg Chocolates",
     description:
-      "Artigos sobre chocolates artesanais, receitas, dicas para revendedores e novidades da Siareg Chocolates.",
+      "Conteúdo para quem revende chocolate: margem, giro, escolha de fornecedor e mix de produtos.",
     url: `${site.url}/blog`,
   },
 };

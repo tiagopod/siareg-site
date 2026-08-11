@@ -9,7 +9,7 @@ import ProductCard from "@/components/ProductCard";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Catálogo de Chocolates para Atacado e Revenda",
+  title: "Catálogo de Chocolates para Atacado",
   description:
     "Linha completa Siareg para revenda: Pão de Mel artesanal, Trufas, Bombons, Blisters, Copinhos e Ovos de Páscoa. Pedidos no atacado direto da fábrica em Guararema SP.",
   alternates: { canonical: "/produtos" },

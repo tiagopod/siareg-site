@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { website } from "@/lib/jsonld";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import LeadTracking from "@/components/LeadTracking";
 import Popup from "@/components/Popup";
 import { popup } from "@/content/home";
 
@@ -83,6 +84,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
 
         <JsonLd data={website()} />
+        {/* Empurra os eventos de lead para o dataLayer do GTM (ver lib/analytics.ts) */}
+        <LeadTracking />
         <Header />
         <main>{children}</main>
         <Footer />

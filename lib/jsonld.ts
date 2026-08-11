@@ -43,6 +43,8 @@ export function blogPosting(opts: {
   description?: string;
   image?: string;
   datePublished?: string;
+  /** Data da última revisão; cai para `datePublished` quando ausente. */
+  dateModified?: string;
   url: string;
 }) {
   return {
@@ -52,7 +54,10 @@ export function blogPosting(opts: {
     ...(opts.description ? { description: opts.description } : {}),
     ...(opts.image ? { image: [abs(opts.image)] } : {}),
     ...(opts.datePublished
-      ? { datePublished: opts.datePublished, dateModified: opts.datePublished }
+      ? {
+          datePublished: opts.datePublished,
+          dateModified: opts.dateModified ?? opts.datePublished,
+        }
       : {}),
     author: { "@type": "Organization", name: site.name, url: BASE },
     publisher: {

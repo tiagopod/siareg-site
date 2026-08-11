@@ -7,7 +7,7 @@ const slug = "display-trufa";
 const product = getProduct(slug)!;
 
 export const metadata: Metadata = {
-  title: "Display Trufa para PDV — Atacado Direto da Fábrica",
+  title: "Display Trufa para PDV no Atacado",
   description:
     "Display Trufa Siareg — expositor com trufas prontas para o ponto de venda. Solução completa para padarias, mercados e lojas. Compre no atacado em Guararema SP.",
   alternates: { canonical: `/${slug}` },
