@@ -1,21 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { popup } from "@/content/home";
 import { salesWa } from "@/content/site";
 import { Close } from "./icons";
 
 export default function Popup() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     // Show once per session, shortly after load (mirrors Popup Maker behavior).
     if (typeof window === "undefined") return;
+    if (pathname === "/vanessa") return; // LP exclusiva — sem popup de rodízio
     if (sessionStorage.getItem("siareg_popup_seen")) return;
     const t = setTimeout(() => setOpen(true), 2500);
     return () => clearTimeout(t);
-  }, []);
+  }, [pathname]);
 
   const close = () => {
     setOpen(false);

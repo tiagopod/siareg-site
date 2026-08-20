@@ -3,12 +3,17 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { site, wa, DEFAULT_WA_MESSAGE } from "@/content/site";
 import { Facebook, Instagram, Mail, Phone, Pin } from "./icons";
 
 export default function Footer() {
+  const pathname = usePathname();
   const [tab, setTab] = useState(0);
   const regions = site.footer.regions;
+
+  // LP exclusiva de campanha — tem o próprio mini footer, sem links
+  if (pathname === "/vanessa") return null;
 
   return (
     <footer className="bg-chocolate-texture text-cream">
@@ -75,7 +80,7 @@ export default function Footer() {
 
         {/* Brand */}
         <div className="flex flex-col items-start gap-4 md:items-center md:text-center">
-          <Link href="/"><Image src={site.logo} alt={site.name} width={130} height={64} className="h-14 w-auto object-contain" /></Link>
+          <Link href="/" prefetch={false}><Image src={site.logo} alt={site.name} width={130} height={64} className="h-14 w-auto object-contain" /></Link>
           <h5 className="text-lg font-semibold">{site.name}</h5>
           <p className="max-w-sm font-body text-sm normal-case leading-relaxed tracking-normal text-cream/75">{site.footer.about}</p>
         </div>
@@ -91,7 +96,7 @@ export default function Footer() {
           </div>
           <nav className="mt-6 flex flex-col gap-2 font-body text-sm normal-case tracking-normal text-cream/80 md:items-end">
             {site.nav.map((n) => (
-              <Link key={n.label} href={n.href} target={"external" in n && n.external ? "_blank" : undefined} className="hover:text-brand-yellow">{n.label}</Link>
+              <Link key={n.label} href={n.href} prefetch={false} target={"external" in n && n.external ? "_blank" : undefined} className="hover:text-brand-yellow">{n.label}</Link>
             ))}
           </nav>
         </div>
@@ -103,7 +108,7 @@ export default function Footer() {
             {site.name} {site.year}. Produzido por {site.producedBy}.
           </span>
           <span className="hidden sm:inline" aria-hidden>·</span>
-          <Link href="/politica-de-privacidade" className="hover:text-brand-yellow">
+          <Link href="/politica-de-privacidade" prefetch={false} className="hover:text-brand-yellow">
             Política de Privacidade
           </Link>
         </div>

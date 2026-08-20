@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { site } from "@/content/site";
 import { getRootLpProducts } from "@/content/products";
@@ -15,6 +16,7 @@ const Chevron = ({ className = "" }: { className?: string }) => (
 );
 
 export default function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [desktopProductsOpen, setDesktopProductsOpen] = useState(false);
@@ -44,9 +46,13 @@ export default function Header() {
     };
   }, [desktopProductsOpen]);
 
+  // LP exclusiva de campanha — tem o próprio mini header, sem menu
+  if (pathname === "/vanessa") return null;
+
   const NavLink = ({ item }: { item: (typeof nav)[number] }) => (
     <Link
       href={item.href}
+      prefetch={false}
       target={"external" in item && item.external ? "_blank" : undefined}
       className="font-heading text-sm font-medium uppercase tracking-wider text-cream/90 transition-colors hover:text-brand-yellow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-yellow"
       onClick={() => setOpen(false)}
@@ -66,6 +72,7 @@ export default function Header() {
     >
       <Link
         href={item.href}
+        prefetch={false}
         className="font-heading text-sm font-medium uppercase tracking-wider text-cream/90 transition-colors hover:text-brand-yellow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-yellow"
       >
         {item.label}
@@ -100,6 +107,7 @@ export default function Header() {
               <Link
                 key={p.slug}
                 href={`/${p.slug}`}
+                prefetch={false}
                 onClick={() => setDesktopProductsOpen(false)}
                 className="flex items-center justify-between rounded-lg px-3 py-2 font-body text-sm normal-case tracking-normal text-cocoa-700 transition hover:bg-cream hover:text-cocoa focus-visible:bg-cream focus-visible:outline-none"
               >
@@ -110,6 +118,7 @@ export default function Header() {
           </div>
           <Link
             href="/produtos"
+            prefetch={false}
             onClick={() => setDesktopProductsOpen(false)}
             className="flex items-center justify-center gap-2 border-t border-black/5 bg-cocoa-700 px-5 py-3 font-heading text-xs font-semibold uppercase tracking-wider text-cream transition hover:bg-cocoa focus-visible:bg-cocoa focus-visible:outline-none"
           >
@@ -135,7 +144,7 @@ export default function Header() {
           <nav className="hidden items-center gap-7 lg:flex">{left.map(renderDesktop)}</nav>
 
           {/* Logo */}
-          <Link href="/" className="flex items-center justify-center" aria-label={site.name}>
+          <Link href="/" prefetch={false} className="flex items-center justify-center" aria-label={site.name}>
             <Image src={site.logo} alt={site.name} width={120} height={60} priority className="h-12 w-auto object-contain" />
           </Link>
 
@@ -198,6 +207,7 @@ export default function Header() {
                               <Link
                                 key={p.slug}
                                 href={`/${p.slug}`}
+                                prefetch={false}
                                 onClick={() => setOpen(false)}
                                 className="block min-h-[44px] py-2.5 font-body text-sm normal-case tracking-normal text-cream/75 transition-colors hover:text-brand-yellow focus-visible:text-brand-yellow"
                               >
