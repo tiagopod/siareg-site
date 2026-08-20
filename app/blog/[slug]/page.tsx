@@ -61,6 +61,7 @@ function withLinks(text: string) {
       <Link
         key={`${at}-${href}`}
         href={href}
+        prefetch={false}
         className="font-medium text-cocoa-700 underline decoration-gold decoration-2 underline-offset-4 transition-colors hover:text-chocolate hover:decoration-chocolate"
       >
         {label}
@@ -162,6 +163,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
             </a>
             <Link
               href="/blog"
+              prefetch={false}
               className="inline-flex items-center justify-center rounded-full border-2 border-cocoa px-7 py-3 font-heading text-sm font-semibold uppercase tracking-wider text-cocoa-700 transition hover:bg-cocoa hover:text-cream"
             >
               ← Voltar ao blog

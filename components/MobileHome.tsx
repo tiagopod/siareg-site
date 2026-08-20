@@ -89,6 +89,7 @@ export default function MobileHome() {
           </h2>
           <Link
             href="/produtos"
+            prefetch={false}
             className="flex items-center gap-0.5 font-body text-xs font-semibold normal-case tracking-normal text-gold"
           >
             Ver todos <ChevronRight width={14} height={14} />
@@ -100,6 +101,7 @@ export default function MobileHome() {
             <Link
               key={p.slug}
               href={productHref(p.slug)}
+              prefetch={false}
               className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition active:scale-[0.98]"
             >
               <div className="relative aspect-square w-full bg-cream/50">
@@ -334,6 +336,7 @@ function BottomNav() {
             <Link
               key={t.label}
               href={t.href}
+              prefetch={false}
               target={t.external ? "_blank" : undefined}
               rel={t.external ? "noopener noreferrer" : undefined}
               className={`flex flex-1 flex-col items-center gap-1 py-2.5 ${

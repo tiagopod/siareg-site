@@ -24,7 +24,7 @@ export default function About() {
             <p className="mt-5 max-w-xl font-body text-base normal-case leading-relaxed tracking-normal text-cream/85">
               {about.body}
             </p>
-            <Link href={about.ctaHref} className="btn-yellow mt-7">{about.ctaLabel}</Link>
+            <Link href={about.ctaHref} prefetch={false} className="btn-yellow mt-7">{about.ctaLabel}</Link>
           </Reveal>
 
           <Reveal delay={0.15}>

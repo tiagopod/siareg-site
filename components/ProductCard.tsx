@@ -7,6 +7,7 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={productHref(product.slug)}
+      prefetch={false}
       className="group flex h-full flex-col items-center rounded-2xl border border-black/5 bg-cream/40 p-4 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
     >
       <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-white/60">

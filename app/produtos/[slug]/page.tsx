@@ -150,7 +150,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
               </div>
 
               <p className="mt-6 font-body text-sm normal-case tracking-normal text-muted">
-                <Link href="/produtos" className="font-semibold text-cocoa-700 hover:text-cocoa">
+                <Link href="/produtos" prefetch={false} className="font-semibold text-cocoa-700 hover:text-cocoa">
                   ← Voltar para todos os produtos
                 </Link>
               </p>

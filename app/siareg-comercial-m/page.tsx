@@ -358,6 +358,7 @@ export default function LpComercialPage() {
                       src={cat.image}
                       alt={cat.name}
                       fill
+                      sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <span className="absolute left-3 top-3 rounded-full bg-chocolate/80 px-3 py-1 font-heading text-[10px] font-semibold uppercase tracking-widest text-brand-yellow">

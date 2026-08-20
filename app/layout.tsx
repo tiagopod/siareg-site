@@ -11,8 +11,10 @@ import LeadTracking from "@/components/LeadTracking";
 import Popup from "@/components/Popup";
 import { popup } from "@/content/home";
 
-const oswald = Oswald({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], variable: "--font-oswald", display: "swap" });
-const poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], variable: "--font-poppins", display: "swap" });
+// Só os pesos que o CSS realmente usa (400 default, 500 font-medium, 600 font-semibold,
+// 700 font-bold). O 300 saiu porque não há nenhum font-light no projeto.
+const oswald = Oswald({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-oswald", display: "swap" });
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-poppins", display: "swap" });
 const italianno = Italianno({ subsets: ["latin"], weight: ["400"], variable: "--font-italianno", display: "swap" });
 
 export const metadata: Metadata = {

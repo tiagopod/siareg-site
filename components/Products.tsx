@@ -23,7 +23,7 @@ export default function Products() {
             const external = !("href" in p && p.href);
             return (
               <Reveal key={p.code} delay={(idx % 4) * 0.07}>
-                <Link href={href} target={external ? "_blank" : undefined}
+                <Link href={href} prefetch={false} target={external ? "_blank" : undefined}
                   className="group flex h-full flex-col items-center rounded-2xl border border-black/5 bg-cream/40 p-4 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                   <div className="relative aspect-square w-full">
                     <Image src={p.image} alt={p.name} fill sizes="(max-width:768px) 45vw, 22vw"
@@ -42,7 +42,7 @@ export default function Products() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <Link href={productsSection.ctaHref} className="btn-yellow">{productsSection.ctaLabel}</Link>
+          <Link href={productsSection.ctaHref} prefetch={false} className="btn-yellow">{productsSection.ctaLabel}</Link>
         </div>
 
         {/* Catalog + store CTAs */}

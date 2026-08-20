@@ -190,9 +190,9 @@ export default function ProductLanding({ slug }: { slug: string }) {
         <div className="container-x">
           {/* Breadcrumb */}
           <nav className="mb-4 font-body text-xs normal-case tracking-normal text-cream/60">
-            <Link href="/" className="hover:text-brand-yellow">Home</Link>
+            <Link href="/" prefetch={false} className="hover:text-brand-yellow">Home</Link>
             <span className="px-1">/</span>
-            <Link href="/produtos" className="hover:text-brand-yellow">Produtos</Link>
+            <Link href="/produtos" prefetch={false} className="hover:text-brand-yellow">Produtos</Link>
             <span className="px-1">/</span>
             <span className="text-cream/90">{product.name}</span>
           </nav>
@@ -472,6 +472,7 @@ export default function ProductLanding({ slug }: { slug: string }) {
             <p className="mt-6">
               <Link
                 href="/produtos"
+                prefetch={false}
                 className="inline-flex items-center gap-1.5 font-body text-sm normal-case tracking-normal text-cream/60 hover:text-brand-yellow"
               >
                 <ArrowLeft className="h-4 w-4" />

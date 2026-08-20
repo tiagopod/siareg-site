@@ -19,11 +19,12 @@ export default function NotFound() {
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Link href="/" className="btn-yellow">
+          <Link href="/" prefetch={false} className="btn-yellow">
             Voltar ao início
           </Link>
           <Link
             href="/produtos"
+            prefetch={false}
             className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-cream/70 px-7 py-3 font-heading text-sm font-semibold uppercase tracking-wider text-cream transition hover:bg-cream hover:text-chocolate"
           >
             Ver produtos

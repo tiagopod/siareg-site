@@ -34,6 +34,7 @@ export default function BlogPage() {
             <Reveal key={post.slug} delay={(idx % 3) * 0.07}>
               <Link
                 href={`/blog/${post.slug}`}
+                prefetch={false}
                 className="group flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-cream/40 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-cream">
