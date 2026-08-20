@@ -3,38 +3,52 @@
  * Rota: /vanessa
  *
  * Página de conversão única: todo o conteúdo aponta para o WhatsApp da Vanessa
- * (site.whatsapp.vanessa). Sem menu, sem rodapé com links, sem outros vendedores —
- * só prova de que a Siareg entrega e o botão pra falar com ela.
+ * (site.whatsapp.vanessa), mas o texto da página é focado em produto — Pão de
+ * Mel e seu histórico de vendas no varejo — não na vendedora. Sem menu, sem
+ * rodapé com links, sem outros vendedores.
  *
  * Edite headlines, benefícios e depoimentos aqui sem tocar no page.tsx.
  */
 
 // ─────────────────────────────────────────────────────────────
-// HERO
+// HERO — produto em foco, não banner promocional
 // ─────────────────────────────────────────────────────────────
 export const hero = {
-  eyebrow: "Fábrica própria em Guararema · SP — Desde 2004",
-  headline: "Chocolates no atacado direto da fábrica",
+  eyebrow: "O mais pedido da linha Siareg · Fábrica própria desde 2004",
+  headline: "Pão de Mel Siareg: o campeão de vendas no varejo",
   subheadline:
-    "Fale agora com a Vanessa e garanta preço de fábrica, linha completa e entrega para todo o Brasil — sem intermediário.",
-  ctaPrimary: "Falar com a Vanessa",
-  image: "/images/hero/irresistivel-siareg-1.png",
-  imageAlt: "Linha de chocolates artesanais Siareg — pão de mel, trufas e copinhos",
+    "Alta rotatividade, compra por impulso e cliente que sempre volta — o produto que vende sozinho na gôndola, no balcão e no caixa. Direto da fábrica, com preço de atacado.",
+  ctaPrimary: "Peça agora no WhatsApp",
+  image: "/images/products/paodemel.webp",
+  imageAlt: "Caixa de Pão de Mel Siareg com unidades embaladas e uma unidade aberta mostrando o recheio",
   badges: [
-    { label: "Desde 2004" },
-    { label: "Fábrica própria" },
+    { label: "Cód. 100" },
+    { label: "Giro rápido" },
     { label: "Entrega em todo o Brasil" },
   ],
 } as const;
 
 // ─────────────────────────────────────────────────────────────
-// VENDEDORA
+// SPOTLIGHT — Pão de Mel e o sucesso de vendas no varejo
+// Seção logo após o hero, com os selling points reais usados na LP
+// de produto (content/produtos-lp.ts → "paodemel").
 // ─────────────────────────────────────────────────────────────
-export const seller = {
-  name: "Vanessa",
-  role: "Consultora Comercial · Siareg Chocolates",
-  intro:
-    "Sou a Vanessa, consultora comercial da Siareg. Atendo pessoalmente cada pedido — do primeiro orçamento até a entrega. Me chama no WhatsApp que eu te ajudo a montar o mix ideal pro seu negócio.",
+export const paoDeMelSpotlight = {
+  eyebrow: "Por que o Pão de Mel vende sozinho",
+  title: "Um produto com sucesso comprovado no varejo",
+  subtitle:
+    "Padarias, mercados, lojas de doces e distribuidores já vendem o Pão de Mel Siareg com alta rotatividade. Veja por que ele funciona em qualquer ponto de venda.",
+  image: "/images/products/paodemel-2.webp",
+  imageAlt: "Pão de Mel Siareg embalado, com uma unidade aberta mostrando a massa macia",
+  badge: "Um dos mais pedidos da linha Siareg",
+  points: [
+    "Alta aceitação entre diferentes públicos — funciona tanto para consumo quanto para presente",
+    "Excelente exposição em balcões e checkouts, estimulando a compra por impulso",
+    "Giro rápido e recompra constante: cliente que prova, volta a comprar",
+    "Embalagem pronta para vitrine e gôndola — facilita a venda visual sem esforço extra",
+    "Vendas constantes o ano todo, com picos em datas sazonais",
+  ],
+  ctaWa: "Quero vender Pão de Mel",
 } as const;
 
 // ─────────────────────────────────────────────────────────────
@@ -77,7 +91,7 @@ export const benefitsSection = {
       icon: "truck" as BenefitIcon,
       title: "Entrega para todo o Brasil",
       description:
-        "Atendemos SP capital, Grande SP, Litoral, Interior e demais estados. Fale com a Vanessa para conferir as condições para sua região.",
+        "Atendemos SP capital, Grande SP, Litoral, Interior e demais estados. Fale conosco para conferir as condições para sua região.",
     },
     {
       icon: "craft" as BenefitIcon,
@@ -87,9 +101,9 @@ export const benefitsSection = {
     },
     {
       icon: "support" as BenefitIcon,
-      title: "Atendimento pessoal, direto com a Vanessa",
+      title: "Atendimento comercial ágil",
       description:
-        "Sem fila, sem robô, sem atendente diferente a cada conversa. Um único canal, do orçamento ao pós-venda.",
+        "Sem fila, sem robô. Um único canal de WhatsApp, do orçamento ao pós-venda.",
     },
     {
       icon: "calendar" as BenefitIcon,
@@ -104,7 +118,7 @@ export const benefitsSection = {
 // LINHA DE PRODUTOS (destaques)
 // ─────────────────────────────────────────────────────────────
 export const productsHighlight = {
-  eyebrow: "O que você vai revender",
+  eyebrow: "Também disponível para revenda",
   title: "Linha completa para todo tipo de ponto de venda",
   subtitle: "Cada categoria tem embalagem pronta para gôndola, balcão e presente.",
   categories: [
@@ -129,7 +143,7 @@ export const productsHighlight = {
     {
       name: "Coleção de Páscoa",
       code: "Cód. 155 · 151 · 199",
-      description: "Ovos de 70g a 250g. Fale com a Vanessa e garanta prioridade de entrega.",
+      description: "Ovos de 70g a 250g. Peça no WhatsApp e garanta prioridade de entrega.",
       image: "/images/products/pascoa-2026.png",
     },
   ],
@@ -145,13 +159,13 @@ export const howItWorks = {
   steps: [
     {
       number: "01",
-      title: "Chame a Vanessa no WhatsApp",
-      description: "Clique no botão, mande uma mensagem e ela retorna em minutos com toda a informação que você precisa.",
+      title: "Chame no WhatsApp",
+      description: "Clique no botão, mande uma mensagem e nosso time retorna em minutos com toda a informação que você precisa.",
     },
     {
       number: "02",
       title: "Monte seu pedido",
-      description: "Escolha os produtos da linha que mais combinam com seu ponto de venda. Ela negocia volume, mix e condições de pagamento.",
+      description: "Escolha os produtos da linha que mais combinam com seu ponto de venda. Negociamos volume, mix e condições de pagamento.",
     },
     {
       number: "03",
@@ -182,23 +196,23 @@ export const faq = {
   items: [
     {
       q: "Existe pedido mínimo para comprar no atacado?",
-      a: "Sim, trabalhamos com pedido mínimo para garantir condições de fábrica. O valor exato varia conforme o mix escolhido — a Vanessa te passa uma cotação personalizada no WhatsApp.",
+      a: "Sim, trabalhamos com pedido mínimo para garantir condições de fábrica. O valor exato varia conforme o mix escolhido — pedimos uma cotação personalizada no WhatsApp.",
     },
     {
       q: "Quais regiões vocês atendem?",
-      a: "Atendemos SP capital, Grande SP, Interior e Litoral, além de outros estados. Fale com a Vanessa para confirmar disponibilidade e frete para sua cidade.",
+      a: "Atendemos SP capital, Grande SP, Interior e Litoral, além de outros estados. Fale conosco para confirmar disponibilidade e frete para sua cidade.",
     },
     {
       q: "Quais são os prazos de entrega?",
-      a: "Os prazos dependem do seu endereço e do volume do pedido. A Vanessa informa o prazo exato no momento do pedido.",
+      a: "Os prazos dependem do seu endereço e do volume do pedido. Informamos o prazo exato no momento do pedido.",
     },
     {
       q: "Quais formas de pagamento são aceitas?",
-      a: "Trabalhamos com as principais formas de pagamento comercial. Consulte as condições disponíveis para o seu perfil diretamente com a Vanessa.",
+      a: "Trabalhamos com as principais formas de pagamento comercial. Consulte as condições disponíveis para o seu perfil diretamente conosco.",
     },
     {
       q: "Posso comprar uma variedade de produtos no mesmo pedido?",
-      a: "Sim! Você pode montar um mix com diferentes linhas — Pão de Mel, Trufas, Copinhos, Páscoa e mais. A Vanessa te ajuda a montar o pedido ideal para o seu negócio.",
+      a: "Sim! Você pode montar um mix com diferentes linhas — Pão de Mel, Trufas, Copinhos, Páscoa e mais. Ajudamos a montar o pedido ideal para o seu negócio.",
     },
   ],
 } as const;
@@ -208,9 +222,9 @@ export const faq = {
 // ─────────────────────────────────────────────────────────────
 export const ctaFinal = {
   eyebrow: "Pronto para começar?",
-  title: "Chame a Vanessa agora no WhatsApp",
-  subtitle: "Atendimento comercial pessoal, para tirar dúvidas, enviar cotação e fechar seu primeiro pedido.",
-  ctaWa: "Chamar a Vanessa no WhatsApp",
+  title: "Fale agora no WhatsApp",
+  subtitle: "Atendimento comercial ágil, para tirar dúvidas, enviar cotação e fechar seu primeiro pedido.",
+  ctaWa: "Chamar no WhatsApp",
   trustLines: [
     "Atendimento rápido e sem enrolação",
     "Mais de 20 anos de tradição",
@@ -220,7 +234,10 @@ export const ctaFinal = {
 
 // ─────────────────────────────────────────────────────────────
 // MENSAGENS PRÉ-PREENCHIDAS
+// A saudação usa o nome da Vanessa só na mensagem (não é texto visível na
+// página) — ajuda a identificar que o lead veio da campanha dela.
 // ─────────────────────────────────────────────────────────────
 export const WA_MSG_REVENDEDOR = "Olá, Vanessa! Quero me tornar revendedor Siareg. Podem me passar as condições?";
 export const WA_MSG_COTACAO = "Olá, Vanessa! Gostaria de uma cotação de produtos para revenda.";
 export const WA_MSG_COMECAR = "Olá, Vanessa! Vi o anúncio e quero começar a revender chocolates Siareg. Pode me ajudar?";
+export const WA_MSG_PAODEMEL = "Olá, Vanessa! Vi o anúncio do Pão de Mel e quero revender. Pode me passar as condições de atacado?";

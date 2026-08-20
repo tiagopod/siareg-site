@@ -1,9 +1,11 @@
 /**
  * LP EXCLUSIVA — VANESSA (Google Ads) — /vanessa
  *
- * Página de conversão única para a campanha de tráfego pago da vendedora Vanessa.
- * Sem header/footer com menu, sem catálogo, sem outros vendedores: só prova de que
- * a Siareg entrega e o botão de WhatsApp, sempre para o número dela.
+ * Página de conversão única para a campanha de tráfego pago da vendedora Vanessa,
+ * com foco no Pão de Mel e seu histórico de vendas no varejo (produto em destaque
+ * já no hero + seção logo abaixo). Sem header/footer com menu, sem catálogo, sem
+ * outros vendedores, sem apresentação da vendedora: só prova de que o produto
+ * vende e o botão de WhatsApp, sempre para o número dela.
  * Fora do sitemap e com noindex — não é destino de busca orgânica, só do anúncio.
  */
 
@@ -14,7 +16,7 @@ import { site, wa } from "@/content/site";
 import { testimonials } from "@/content/testimonials";
 import {
   hero,
-  seller,
+  paoDeMelSpotlight,
   socialProof,
   benefitsSection,
   productsHighlight,
@@ -25,6 +27,7 @@ import {
   WA_MSG_REVENDEDOR,
   WA_MSG_COTACAO,
   WA_MSG_COMECAR,
+  WA_MSG_PAODEMEL,
 } from "@/content/lp-vanessa";
 import Reveal from "@/components/Reveal";
 import JsonLd from "@/components/JsonLd";
@@ -33,17 +36,17 @@ import { Whatsapp, Truck, Store, Cart, ArrowRight } from "@/components/icons";
 
 // ─── SEO ────────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  title: "Fale com a Vanessa — Chocolates Siareg no Atacado",
+  title: "Pão de Mel Siareg no Atacado — Direto da Fábrica",
   description:
-    "Atendimento exclusivo com a Vanessa: chocolates Siareg direto da fábrica em Guararema SP, preço de atacado e entrega para todo o Brasil.",
+    "O Pão de Mel mais pedido da linha Siareg: alta rotatividade e sucesso comprovado no varejo. Preço de fábrica e entrega para todo o Brasil. Peça no WhatsApp.",
   alternates: { canonical: "/vanessa" },
   robots: { index: false, follow: false },
   openGraph: {
-    title: "Fale com a Vanessa — Chocolates Siareg no Atacado",
+    title: "Pão de Mel Siareg no Atacado — Direto da Fábrica",
     description:
-      "Atendimento exclusivo com a Vanessa: chocolates Siareg direto da fábrica em Guararema SP, preço de atacado e entrega para todo o Brasil.",
+      "O Pão de Mel mais pedido da linha Siareg: alta rotatividade e sucesso comprovado no varejo. Preço de fábrica e entrega para todo o Brasil. Peça no WhatsApp.",
     url: `${site.url}/vanessa`,
-    images: [{ url: `${site.url}/images/hero/irresistivel-siareg-1.png`, width: 1200, height: 630, alt: "Siareg Chocolates — atacado direto da fábrica" }],
+    images: [{ url: `${site.url}/images/products/paodemel.webp`, width: 705, height: 471, alt: "Pão de Mel Siareg — caixa com unidades embaladas" }],
   },
 };
 
@@ -51,6 +54,7 @@ export const metadata: Metadata = {
 const waRevendedor = wa(site.whatsapp.vanessa, WA_MSG_REVENDEDOR);
 const waCotacao = wa(site.whatsapp.vanessa, WA_MSG_COTACAO);
 const waComecar = wa(site.whatsapp.vanessa, WA_MSG_COMECAR);
+const waPaodemel = wa(site.whatsapp.vanessa, WA_MSG_PAODEMEL);
 
 function BenefitIcon({ icon, className }: { icon: string; className?: string }) {
   const cls = className ?? "h-8 w-8";
@@ -182,7 +186,7 @@ export default function VanessaLpPage() {
 
               <Reveal delay={0.18}>
                 <div className="mt-8">
-                  <WaButton href={waRevendedor} label={hero.ctaPrimary} size="lg" />
+                  <WaButton href={waPaodemel} label={hero.ctaPrimary} size="lg" />
                 </div>
               </Reveal>
 
@@ -204,16 +208,73 @@ export default function VanessaLpPage() {
             <Reveal delay={0.1} y={32}>
               <div className="relative mx-auto max-w-sm lg:max-w-full">
                 <div className="absolute -inset-4 rounded-3xl bg-gold/10 blur-2xl" />
-                <Image
-                  src={hero.image}
-                  alt={hero.imageAlt}
-                  width={600}
-                  height={560}
-                  className="relative z-10 w-full rounded-2xl object-cover shadow-2xl"
-                  priority
-                />
+                <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-cream/10 bg-cream/5 shadow-2xl">
+                  <Image
+                    src={hero.image}
+                    alt={hero.imageAlt}
+                    fill
+                    sizes="(max-width:1024px) 80vw, 45vw"
+                    className="object-contain p-8"
+                    priority
+                  />
+                </div>
               </div>
             </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════
+          SPOTLIGHT — Pão de Mel e o sucesso de vendas no varejo
+      ══════════════════════════════════════════════════════════ */}
+      <section className="bg-white py-16 sm:py-24">
+        <div className="container-x">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <Reveal y={28}>
+              <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-3xl border border-black/5 bg-cream shadow-xl lg:max-w-none">
+                <Image
+                  src={paoDeMelSpotlight.image}
+                  alt={paoDeMelSpotlight.imageAlt}
+                  fill
+                  sizes="(max-width:1024px) 80vw, 45vw"
+                  className="object-cover"
+                />
+                <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-brand-yellow px-4 py-1.5 font-heading text-[11px] font-bold uppercase tracking-widest text-chocolate shadow">
+                  {paoDeMelSpotlight.badge}
+                </span>
+              </div>
+            </Reveal>
+
+            <div>
+              <Reveal>
+                <p className="font-script text-3xl text-cocoa">{paoDeMelSpotlight.eyebrow}</p>
+                <h2 className="section-title mt-1">{paoDeMelSpotlight.title}</h2>
+                <p className="mt-4 font-body text-base normal-case leading-relaxed tracking-normal text-ink/65">
+                  {paoDeMelSpotlight.subtitle}
+                </p>
+              </Reveal>
+
+              <Reveal delay={0.08}>
+                <ul className="mt-7 space-y-4">
+                  {paoDeMelSpotlight.points.map((point) => (
+                    <li key={point} className="flex items-start gap-3">
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cocoa/10 text-cocoa">
+                        <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5">
+                          <path fillRule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0l-3.5-3.5a1 1 0 111.4-1.4l2.8 2.8 6.8-6.8a1 1 0 011.4 0z" clipRule="evenodd" />
+                        </svg>
+                      </span>
+                      <span className="font-body text-sm normal-case leading-relaxed tracking-normal text-ink/75">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+
+              <Reveal delay={0.15}>
+                <div className="mt-8">
+                  <WaButton href={waPaodemel} label={paoDeMelSpotlight.ctaWa} size="lg" />
+                </div>
+              </Reveal>
+            </div>
           </div>
         </div>
       </section>
@@ -242,27 +303,6 @@ export default function VanessaLpPage() {
                   {socialProof.reviewCount} {socialProof.reviewLabel} verificadas no Google
                 </p>
               </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════
-          A VENDEDORA
-      ══════════════════════════════════════════════════════════ */}
-      <section className="bg-white py-14 sm:py-20">
-        <div className="container-x">
-          <Reveal>
-            <div className="mx-auto flex max-w-2xl flex-col items-center gap-5 text-center">
-              <span className="flex h-20 w-20 items-center justify-center rounded-full bg-cocoa/10 font-heading text-3xl font-bold text-cocoa">
-                {seller.name.charAt(0)}
-              </span>
-              <div>
-                <p className="font-heading text-xl font-bold uppercase tracking-wide text-cocoa-700">{seller.name}</p>
-                <p className="font-body text-xs normal-case tracking-normal text-muted">{seller.role}</p>
-              </div>
-              <p className="font-body text-base normal-case leading-relaxed tracking-normal text-ink/70">{seller.intro}</p>
-              <WaButton href={waRevendedor} label={hero.ctaPrimary} size="md" />
             </div>
           </Reveal>
         </div>
