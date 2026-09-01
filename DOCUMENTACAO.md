@@ -57,9 +57,9 @@ npx tsc --noEmit
 /sobre-nos                 História, missão/visão/valores, parceiros
 /produtos                  Catálogo por categoria
   /produtos/[slug]         Detalhe dos 5 produtos sem página raiz (estojo, páscoa, rosquinha)
-/contato                   Mapa NÃO — só botões WhatsApp + e-mail
+/contato                   Formulário de orçamento (→ /api/whatsapp) + botões WhatsApp + e-mail
 /blog                      Listagem
-  /blog/[slug]             14 posts com corpo real
+  /blog/[slug]             18 posts com corpo real (5 de setembro/2026 com FAQ + schema FAQPage)
 
 PÁGINAS DE PRODUTO EM URL RAIZ (9 — espelham as URLs do site original, p/ SEO):
 /paodemel        /paodemel-mini      /trufa-pote        /trufas-sortidas
@@ -91,7 +91,7 @@ Tudo em **`content/`**:
 | `content/home.ts` | Home: slides do hero, cards de canal, CTAs, produtos em destaque, sobre, parceiros, popup |
 | `content/products.ts` | **Catálogo** — 14 produtos (nome, código, descrição, imagens, categoria) + lógica de roteamento |
 | `content/produtos-lp.ts` | Conteúdo de **conversão** das 9 páginas de produto (benefícios, motivos p/ revender, FAQ) |
-| `content/blog.ts` | **14 posts** com corpo completo (blocos h2/h3/p/ul) |
+| `content/blog.ts` | **18 posts** com corpo completo (blocos h2/h3/p/ul) + campo `faq` opcional (vira schema FAQPage) |
 | `content/testimonials.ts` | **Depoimentos reais do Google** (5,0 · 52 avaliações) + instruções de atualização |
 | `content/pages.ts` | Textos de Sobre Nós e Produtos (intro) |
 | `content/campanha-maes.ts` | Toda a campanha de Dia das Mães (headline, kits, datas, oferta) |
