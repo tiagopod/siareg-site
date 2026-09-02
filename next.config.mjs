@@ -51,6 +51,15 @@ const nextConfig = {
    */
   async headers() {
     return [
+      // Endurecimento básico, válido para todas as rotas: impede sniffing de
+      // MIME type e limita o referrer enviado a domínios externos.
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        ],
+      },
       {
         source: "/images/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],

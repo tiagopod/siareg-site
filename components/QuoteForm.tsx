@@ -102,6 +102,10 @@ export default function QuoteForm() {
             value={campos.nome}
             onChange={set("nome")}
             autoComplete="name"
+            required
+            aria-required="true"
+            aria-invalid={erro ? !campos.nome.trim() : undefined}
+            aria-describedby={erro ? "qf-erro" : undefined}
             className={campo}
             placeholder="Como podemos te chamar"
           />
@@ -132,6 +136,10 @@ export default function QuoteForm() {
             value={campos.cidade}
             onChange={set("cidade")}
             autoComplete="address-level2"
+            required
+            aria-required="true"
+            aria-invalid={erro ? !campos.cidade.trim() : undefined}
+            aria-describedby={erro ? "qf-erro" : undefined}
             className={campo}
             placeholder="Para calcularmos a entrega"
           />
@@ -173,7 +181,7 @@ export default function QuoteForm() {
       </div>
 
       {erro && (
-        <p role="alert" className="mt-4 font-body text-sm normal-case tracking-normal text-chocolate">
+        <p id="qf-erro" role="alert" className="mt-4 font-body text-sm normal-case tracking-normal text-chocolate">
           {erro}
         </p>
       )}

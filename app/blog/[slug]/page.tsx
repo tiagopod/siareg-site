@@ -6,7 +6,7 @@ import { blogPosts, type BlogBlock } from "@/content/blog";
 import { site, salesWa } from "@/content/site";
 import PageHeader from "@/components/PageHeader";
 import JsonLd from "@/components/JsonLd";
-import { blogPosting, breadcrumbList } from "@/lib/jsonld";
+import { blogPosting, breadcrumbList, faqPage } from "@/lib/jsonld";
 
 export const dynamicParams = false;
 
@@ -117,6 +117,9 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       { name: "Blog", path: "/blog" },
       { name: post.title, path: `/blog/${params.slug}` },
     ]),
+    // FAQ do artigo (quando existe) — as mesmas perguntas visíveis no corpo do
+    // post, exigência do Google para o rich result de FAQ.
+    ...(post.faq?.length ? [faqPage([...post.faq])] : []),
   ];
 
   return (

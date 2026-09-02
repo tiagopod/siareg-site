@@ -28,6 +28,10 @@ export type BlogPost = {
   updatedAt?: string;
   image: string;
   body: BlogBlock[];
+  /** FAQ do artigo — espelha as perguntas do corpo (h3 + p no fim do post) e
+   *  vira schema FAQPage no template. As respostas devem ser autossuficientes
+   *  (2–3 frases): é o trecho que Google e motores generativos citam. */
+  faq?: { question: string; answer: string }[];
 };
 
 export const blogHero = {
@@ -36,6 +40,258 @@ export const blogHero = {
 } as const;
 
 export const blogPosts: BlogPost[] = [
+  // ─────────────────── Setembro/2026 — posts de produto ───────────────────
+  {
+    slug: "display-de-chocolates-no-ponto-de-venda",
+    title: "Display de Trufas: Como Expor Chocolates no Ponto de Venda",
+    excerpt:
+      "A exposição decide o giro do chocolate: produtos ao alcance do olhar, perto do caixa, vendem por impulso. O display de trufas Siareg chega pronto para o balcão — abriu, expôs, vendeu — e é a forma mais simples de transformar espaço de loja em faturamento.",
+    date: "2026-09-30",
+    image: "/images/products/display-trufa.webp",
+    body: [
+      { type: "h2", text: "Por que a exposição define o giro do chocolate" },
+      { type: "p", text: "Chocolate é compra por impulso: a maioria das vendas acontece porque o cliente viu o produto, não porque foi procurá-lo." },
+      { type: "p", text: "Isso significa que o mesmo produto pode girar 3x mais dependendo de onde e como está exposto." },
+      { type: "p", text: "Uma boa exposição garante:" },
+      { type: "ul", items: ["Visibilidade no momento da decisão de compra", "Facilidade para o cliente pegar o produto", "Organização e reposição rápidas", "Aproveitamento de espaços que antes não vendiam nada"] },
+      { type: "h2", text: "Display de trufa: pronto para o balcão" },
+      { type: "p", text: "O [display de trufas Siareg](/display-trufa) foi desenvolvido exatamente para isso: uma caixa expositora que vai direto da entrega para o balcão, sem montagem e sem precisar de gôndola própria." },
+      { type: "p", text: "Cada trufa fica visível e embalada individualmente, com apelo visual que trabalha sozinho — a embalagem vende o produto enquanto sua equipe cuida do resto." },
+      { type: "p", text: "Funciona muito bem ao lado de outros itens de impulso, como os [palitinhos de chocolate](/palitinhos-chocolate) e o pão de mel em display." },
+      { type: "h2", text: "Onde posicionar o display na loja" },
+      { type: "p", text: "Os pontos que mais convertem, na ordem:" },
+      { type: "ul", items: ["Área do caixa — o cliente espera, olha e adiciona à compra", "Balcão da padaria ou confeitaria — junto ao café e ao lanche", "Ponta de gôndola em corredores de alto fluxo", "Balcão de atendimento de mercearias e conveniências"] },
+      { type: "p", text: "Regra prática: o display deve ficar entre a linha da cintura e a dos olhos, em um ponto onde o cliente naturalmente para ou espera." },
+      { type: "h2", text: "Displays no atacado: reposição sem esforço" },
+      { type: "p", text: "Para mercados, padarias e distribuidores, o formato display simplifica a operação: a reposição é trocar a caixa, o estoque é fácil de contar e a exposição fica sempre organizada." },
+      { type: "p", text: "A Siareg produz em Guararema - SP desde 2004 e atende Grande São Paulo, litoral e interior com entrega regular — nota 5,0 no Google entre os parceiros que já revendem." },
+      { type: "h2", text: "Perguntas frequentes" },
+      { type: "h3", text: "O que é um display de trufas?" },
+      { type: "p", text: "É uma caixa expositora com trufas embaladas individualmente, pronta para ficar no balcão ou no caixa. Ela elimina a necessidade de gôndola própria: a própria embalagem organiza e expõe o produto no ponto de venda." },
+      { type: "h3", text: "Onde colocar o display de chocolates na loja?" },
+      { type: "p", text: "Nos pontos de espera e decisão: área do caixa, balcão da padaria e pontas de gôndola de alto fluxo. Mantenha o display entre a altura da cintura e a dos olhos para maximizar a compra por impulso." },
+      { type: "h3", text: "Display de doces aumenta mesmo as vendas?" },
+      { type: "p", text: "Sim. Chocolate é compra por impulso, e o display coloca o produto no campo de visão do cliente no momento da decisão. Na prática, um bom posicionamento de display multiplica o giro do mesmo produto sem custo adicional de operação." },
+      { type: "h2", text: "Leve o display de trufas para o seu ponto de venda" },
+      { type: "p", text: "Conheça o [Display Trufa Siareg](/display-trufa), veja também as [trufas sortidas](/trufas-sortidas) para compor o mix e [fale com o time comercial](/siareg-comercial-m) para condições de atacado." },
+    ],
+    faq: [
+      {
+        question: "O que é um display de trufas?",
+        answer:
+          "É uma caixa expositora com trufas embaladas individualmente, pronta para ficar no balcão ou no caixa. Ela elimina a necessidade de gôndola própria: a própria embalagem organiza e expõe o produto no ponto de venda.",
+      },
+      {
+        question: "Onde colocar o display de chocolates na loja?",
+        answer:
+          "Nos pontos de espera e decisão: área do caixa, balcão da padaria e pontas de gôndola de alto fluxo. Mantenha o display entre a altura da cintura e a dos olhos para maximizar a compra por impulso.",
+      },
+      {
+        question: "Display de doces aumenta mesmo as vendas?",
+        answer:
+          "Sim. Chocolate é compra por impulso, e o display coloca o produto no campo de visão do cliente no momento da decisão. Na prática, um bom posicionamento de display multiplica o giro do mesmo produto sem custo adicional de operação.",
+      },
+    ],
+  },
+  {
+    slug: "chocolates-para-o-dia-das-criancas",
+    title: "Chocolates para o Dia das Crianças: Abasteça em Setembro",
+    excerpt:
+      "O Dia das Crianças (12 de outubro) é uma das datas que mais vendem chocolate no varejo — e o estoque se compra em setembro. Mini ovinhos, palitinhos e trufas são os campeões da data: preço acessível, apelo infantil e giro garantido.",
+    date: "2026-09-23",
+    image: "/images/products/miniovinhos-chocolate.png",
+    body: [
+      { type: "h2", text: "Quando abastecer o estoque para o Dia das Crianças" },
+      { type: "p", text: "A resposta curta: em setembro." },
+      { type: "p", text: "O consumidor compra chocolate na primeira quinzena de outubro, mas o varejo que espera até lá encontra fornecedores sem agenda, frete disputado e prateleira vazia na semana mais importante." },
+      { type: "p", text: "Quem fecha o pedido em setembro garante:" },
+      { type: "ul", items: ["Estoque completo antes da concorrência", "Prioridade de entrega na agenda da fábrica", "Tempo para montar a exposição temática", "Condições melhores de negociação em volume"] },
+      { type: "h2", text: "Os chocolates que mais vendem na data" },
+      { type: "h3", text: "Mini Ovinhos de Chocolate" },
+      { type: "p", text: "O pote de [mini ovinhos de chocolate](/miniovinhos-chocolate) é o produto perfeito para o Dia das Crianças: formato lúdico, porção individual e preço que cabe na lembrancinha." },
+      { type: "p", text: "Funciona como presente pronto e como item de cesta ou kit montado pela própria loja." },
+      { type: "h3", text: "Palitinhos de chocolate" },
+      { type: "p", text: "Os [palitinhos de chocolate](/palitinhos-chocolate) são os queridinhos do público infantil no ponto de caixa: crocantes, acessíveis e vendidos por impulso, unidade a unidade." },
+      { type: "h3", text: "Trufas sortidas" },
+      { type: "p", text: "As [trufas sortidas](/trufas-sortidas) completam o mix para os adultos que compram junto — sabores variados e forte apelo visual na mesma exposição." },
+      { type: "h2", text: "Como montar a exposição temática" },
+      { type: "ul", items: ["Crie um ponto extra temático no fluxo principal da loja", "Concentre os itens infantis na altura dos olhos das crianças", "Monte kits e cestas com preço fechado — aumentam o ticket médio", "Reforce o ponto de caixa com itens de menor valor unitário"] },
+      { type: "h2", text: "Compre no atacado direto da fábrica" },
+      { type: "p", text: "A Siareg Chocolates fabrica em Guararema - SP desde 2004 e atende mercados, distribuidores e revendedores na Grande São Paulo, litoral e interior, com condições especiais por volume." },
+      { type: "h2", text: "Perguntas frequentes" },
+      { type: "h3", text: "Quais doces vendem mais no Dia das Crianças?" },
+      { type: "p", text: "Chocolates em porções individuais e formatos lúdicos: mini ovinhos, palitinhos de chocolate e trufas. Itens de preço acessível vendem por impulso e também compõem lembrancinhas, cestas e kits." },
+      { type: "h3", text: "Quando o mercado deve comprar o estoque da data?" },
+      { type: "p", text: "Em setembro. O pedido antecipado garante entrega antes do pico de consumo, prioridade na agenda da fábrica e tempo para montar a exposição temática — outubro é para vender, não para repor." },
+      { type: "h3", text: "Onde comprar chocolates no atacado para o Dia das Crianças?" },
+      { type: "p", text: "Direto de uma fábrica com pronta entrega regional, como a Siareg Chocolates, de Guararema - SP. Comprar direto da fábrica garante preço de atacado, padronização e reposição rápida durante a semana da data." },
+      { type: "h2", text: "Garanta seu estoque agora" },
+      { type: "p", text: "Veja o [pote de mini ovinhos](/miniovinhos-chocolate), monte o mix com o [catálogo completo](/produtos) e [fale com o time comercial](/siareg-comercial-m) ainda em setembro." },
+    ],
+    faq: [
+      {
+        question: "Quais doces vendem mais no Dia das Crianças?",
+        answer:
+          "Chocolates em porções individuais e formatos lúdicos: mini ovinhos, palitinhos de chocolate e trufas. Itens de preço acessível vendem por impulso e também compõem lembrancinhas, cestas e kits.",
+      },
+      {
+        question: "Quando o mercado deve comprar o estoque da data?",
+        answer:
+          "Em setembro. O pedido antecipado garante entrega antes do pico de consumo, prioridade na agenda da fábrica e tempo para montar a exposição temática — outubro é para vender, não para repor.",
+      },
+      {
+        question: "Onde comprar chocolates no atacado para o Dia das Crianças?",
+        answer:
+          "Direto de uma fábrica com pronta entrega regional, como a Siareg Chocolates, de Guararema - SP. Comprar direto da fábrica garante preço de atacado, padronização e reposição rápida durante a semana da data.",
+      },
+    ],
+  },
+  {
+    slug: "palitinho-de-chocolate-para-revenda",
+    title: "Palitinho de Chocolate: o Campeão da Compra por Impulso",
+    excerpt:
+      "O palitinho de chocolate é um dos produtos de maior giro do ponto de caixa: crocante, de preço acessível e vendido unidade a unidade, por impulso. Para mercados, padarias e conveniências, é margem constante em um espaço mínimo de exposição.",
+    date: "2026-09-16",
+    image: "/images/products/palitinhos-chocolate.webp",
+    body: [
+      { type: "h2", text: "Compra por impulso: por que o ponto de caixa decide o giro" },
+      { type: "p", text: "Cerca de metade das compras de doces no varejo não estava planejada — o cliente decide na fila, olhando o que está ao alcance." },
+      { type: "p", text: "Por isso, o espaço ao redor do caixa é o metro quadrado mais valioso da loja, e produtos de baixo valor unitário e forte apelo visual são os que melhor o aproveitam." },
+      { type: "h2", text: "Palitinho de chocolate: preço acessível, saída constante" },
+      { type: "p", text: "O [palitinho de chocolate Siareg](/palitinhos-chocolate) (Cód. 118) une a crocância do biscoito à cobertura de chocolate — um formato que agrada crianças e adultos e sai o ano inteiro." },
+      { type: "p", text: "Na prática da revenda, ele entrega:" },
+      { type: "ul", items: ["Preço unitário baixo — decisão de compra sem pensar duas vezes", "Alto giro com reposição simples", "Exposição compacta: rende muito em pouco espaço", "Aceitação em todos os perfis de loja — mercado, padaria, conveniência, cantina"] },
+      { type: "h2", text: "Setembro: reforce o estoque para o Dia das Crianças" },
+      { type: "p", text: "O palitinho é um dos produtos que mais crescem na semana do Dia das Crianças (12 de outubro). Quem revende garante o estoque reforçado em setembro, antes do pico — e aproveita para montar o ponto extra temático da data." },
+      { type: "h2", text: "Palitinhos no atacado: margem e reposição" },
+      { type: "p", text: "A Siareg fornece palitinhos de chocolate no atacado direto da fábrica de Guararema - SP, com atendimento na Grande São Paulo, litoral e interior desde 2004." },
+      { type: "p", text: "Condições por volume, padronização de fábrica e entrega regular — o combo que mantém o caixa da loja girando sem falha de estoque." },
+      { type: "h2", text: "Perguntas frequentes" },
+      { type: "h3", text: "Palitinho de chocolate dá lucro na revenda?" },
+      { type: "p", text: "Sim. Por ter baixo custo unitário no atacado e venda por impulso no varejo, o palitinho trabalha com boa margem percentual e giro rápido — o lucro vem da recorrência, com reposição constante." },
+      { type: "h3", text: "Onde posicionar palitinhos no mercado?" },
+      { type: "p", text: "No ponto de caixa e em balcões de espera, na altura das mãos. É um produto de decisão imediata: quanto mais perto do momento do pagamento, maior a conversão." },
+      { type: "h3", text: "Qual fornecedor de palitinhos de chocolate no atacado?" },
+      { type: "p", text: "A Siareg Chocolates, fábrica de Guararema - SP fundada em 2004, fornece palitinhos no atacado com entrega na Grande São Paulo, litoral e interior — nota 5,0 no Google entre os revendedores parceiros." },
+      { type: "h2", text: "Comece a revender palitinhos Siareg" },
+      { type: "p", text: "Conheça o [palitinho de chocolate](/palitinhos-chocolate), combine com os [mini ovinhos](/miniovinhos-chocolate) para a exposição infantil e [peça sua tabela de atacado](/siareg-comercial-m)." },
+    ],
+    faq: [
+      {
+        question: "Palitinho de chocolate dá lucro na revenda?",
+        answer:
+          "Sim. Por ter baixo custo unitário no atacado e venda por impulso no varejo, o palitinho trabalha com boa margem percentual e giro rápido — o lucro vem da recorrência, com reposição constante.",
+      },
+      {
+        question: "Onde posicionar palitinhos no mercado?",
+        answer:
+          "No ponto de caixa e em balcões de espera, na altura das mãos. É um produto de decisão imediata: quanto mais perto do momento do pagamento, maior a conversão.",
+      },
+      {
+        question: "Qual fornecedor de palitinhos de chocolate no atacado?",
+        answer:
+          "A Siareg Chocolates, fábrica de Guararema - SP fundada em 2004, fornece palitinhos no atacado com entrega na Grande São Paulo, litoral e interior — nota 5,0 no Google entre os revendedores parceiros.",
+      },
+    ],
+  },
+  {
+    slug: "trufa-no-pote-para-revenda",
+    title: "Trufa no Pote: a Novidade que Aumenta o Ticket no Caixa",
+    excerpt:
+      "A trufa no pote é o lançamento da Siareg: as trufas que o cliente já ama, em uma embalagem prática que vende sozinha no balcão. Novidade no mix é o jeito mais barato de aumentar o ticket médio — o cliente que já ia comprar leva um item a mais.",
+    date: "2026-09-09",
+    image: "/images/products/trufa-pote.png",
+    body: [
+      { type: "h2", text: "O que é a trufa no pote" },
+      { type: "p", text: "A [trufa no pote Siareg](/trufa-pote) (Cód. 215) reúne trufas de sabores variados em uma embalagem moderna e resistente, pensada para o varejo: fácil de expor, fácil de levar, fácil de presentear." },
+      { type: "p", text: "É a mesma trufa das [trufas sortidas](/trufas-sortidas) que já giram no seu ponto de venda — em um formato novo que desperta curiosidade e recompra." },
+      { type: "h2", text: "Por que novidades aumentam vendas no varejo" },
+      { type: "p", text: "O cliente habitual compra sempre o mesmo valor. O que muda o ticket médio é dar a ele um motivo novo para adicionar um item — e lançamento é o motivo mais eficiente:" },
+      { type: "ul", items: ["Novidade chama o olhar mesmo de quem não ia comprar doce", "O formato pote posiciona o produto como presente e como consumo próprio", "Cria assunto entre a equipe e os clientes — venda sugerida fica natural", "Renova a percepção da loja: quem lança sempre tem o que mostrar"] },
+      { type: "h2", text: "Onde expor a trufa no pote" },
+      { type: "ul", items: ["Balcão do caixa — o pote fechado é perfeito para compra de última hora", "Ponta de gôndola com cartaz de lançamento", "Junto ao café da padaria, como sobremesa para levar", "Ao lado do display de trufas, somando os dois formatos"] },
+      { type: "h2", text: "Trufa no pote no atacado" },
+      { type: "p", text: "A Siareg fabrica em Guararema - SP desde 2004 e fornece a trufa no pote no atacado para mercados, padarias, distribuidores e revendedores da Grande São Paulo, litoral e interior, com condições especiais para pedidos em volume." },
+      { type: "h2", text: "Perguntas frequentes" },
+      { type: "h3", text: "O que é trufa no pote?" },
+      { type: "p", text: "É uma embalagem em pote com trufas de chocolate de sabores variados, criada pela Siareg para o varejo. O formato serve tanto para consumo próprio quanto para presente, e fica pronto para exposição no balcão ou no caixa." },
+      { type: "h3", text: "Trufa no pote vende bem em mercado?" },
+      { type: "p", text: "Sim. Por ser novidade e ter embalagem de presente, o pote converte no caixa e em pontas de gôndola. Ele complementa a venda unitária de trufas: quem compra uma trufa hoje leva o pote na próxima visita." },
+      { type: "h3", text: "Como armazenar trufas na loja?" },
+      { type: "p", text: "Em local seco e fresco, longe de luz solar direta e de fontes de calor, idealmente abaixo de 24 °C. O pote fechado protege o produto e facilita o controle de validade na prateleira." },
+      { type: "h2", text: "Seja dos primeiros a revender o lançamento" },
+      { type: "p", text: "Conheça a [trufa no pote](/trufa-pote), some ao [display de trufas](/display-trufa) na exposição e [fale com o time comercial](/siareg-comercial-m) para garantir o lançamento no seu mix." },
+    ],
+    faq: [
+      {
+        question: "O que é trufa no pote?",
+        answer:
+          "É uma embalagem em pote com trufas de chocolate de sabores variados, criada pela Siareg para o varejo. O formato serve tanto para consumo próprio quanto para presente, e fica pronto para exposição no balcão ou no caixa.",
+      },
+      {
+        question: "Trufa no pote vende bem em mercado?",
+        answer:
+          "Sim. Por ser novidade e ter embalagem de presente, o pote converte no caixa e em pontas de gôndola. Ele complementa a venda unitária de trufas: quem compra uma trufa hoje leva o pote na próxima visita.",
+      },
+      {
+        question: "Como armazenar trufas na loja?",
+        answer:
+          "Em local seco e fresco, longe de luz solar direta e de fontes de calor, idealmente abaixo de 24 °C. O pote fechado protege o produto e facilita o controle de validade na prateleira.",
+      },
+    ],
+  },
+  {
+    slug: "copinhos-de-chocolate-para-revenda",
+    title: "Copinhos de Chocolate para Revenda: Prepare-se para as Festas",
+    excerpt:
+      "Copinhos de chocolate para revenda são copos comestíveis usados para servir licores, mousses e sobremesas. Buffets, confeitarias e mercados disparam a procura na temporada de festas — e setembro é o mês de garantir o estoque no atacado, direto da fábrica.",
+    date: "2026-09-03",
+    image: "/images/products/copinhos-chocolate.webp",
+    body: [
+      { type: "h2", text: "Por que copinhos de chocolate vendem bem o ano todo" },
+      { type: "p", text: "O copinho de chocolate é um produto duplo: é doce e é utensílio. Ele vende para quem quer uma sobremesa pronta e para quem vai servir bebidas e cremes em festas e eventos." },
+      { type: "p", text: "Esse duplo uso amplia o público e mantém o giro constante — com picos fortes no fim do ano." },
+      { type: "h2", text: "Como os clientes usam os copinhos" },
+      { type: "h3", text: "Com licor e bebidas cremosas" },
+      { type: "p", text: "O uso clássico: servir licor, conhaque ou bebidas cremosas no copinho comestível. Presença garantida em confraternizações, ceias e comemorações de fim de ano." },
+      { type: "h3", text: "Em sobremesas, festas e buffets" },
+      { type: "p", text: "Recheados com mousse, brigadeiro de colher ou frutas, os copinhos viram sobremesa individual de casamentos, formaturas e aniversários — a temporada de eventos que se estende de setembro a dezembro." },
+      { type: "h3", text: "Em confeitarias e padarias" },
+      { type: "p", text: "No balcão, o copinho recheado é item de vitrine com ótima margem; vazio, é insumo vendido para quem produz doces em casa." },
+      { type: "h2", text: "Setembro: hora de garantir estoque para o fim de ano" },
+      { type: "p", text: "Buffets e confeitarias fecham os cardápios das festas com meses de antecedência, e o varejo acompanha: quem abastece em setembro pega agenda de produção livre e chega a novembro com estoque — quem deixa para depois disputa fila." },
+      { type: "h2", text: "Copinhos no atacado: margem e giro" },
+      { type: "p", text: "A Siareg produz os [copinhos de chocolate](/copinhos-chocolate) (Cód. 131) em Guararema - SP desde 2004, com fornecimento no atacado para a Grande São Paulo, litoral e interior." },
+      { type: "p", text: "Para a revenda, isso significa:" },
+      { type: "ul", items: ["Preço de fábrica, sem intermediário", "Padronização de tamanho e qualidade em qualquer volume", "Condições especiais para pedidos grandes", "Reposição regular durante a temporada de festas"] },
+      { type: "h2", text: "Perguntas frequentes" },
+      { type: "h3", text: "Onde comprar copinhos de chocolate no atacado?" },
+      { type: "p", text: "Direto de fábrica, como a Siareg Chocolates, de Guararema - SP, que fornece copinhos no atacado desde 2004 para mercados, confeitarias, buffets e distribuidores da Grande São Paulo, litoral e interior." },
+      { type: "h3", text: "Copinhos de chocolate servem para quais bebidas?" },
+      { type: "p", text: "Principalmente licores e bebidas cremosas, servidos gelados ou em temperatura ambiente. Também funcionam com café e como recipiente de mousses, brigadeiro de colher e outros cremes." },
+      { type: "h3", text: "Como conservar copinhos de chocolate na loja?" },
+      { type: "p", text: "Em local seco e fresco, abaixo de 24 °C, longe de luz solar e de fontes de calor. Bem armazenados, mantêm formato e brilho durante toda a temporada de vendas." },
+      { type: "h2", text: "Garanta seus copinhos para a temporada" },
+      { type: "p", text: "Veja os [copinhos de chocolate Siareg](/copinhos-chocolate), explore o [catálogo completo](/produtos) e [fale com o time comercial](/siareg-comercial-m) para fechar seu pedido de atacado ainda em setembro." },
+    ],
+    faq: [
+      {
+        question: "Onde comprar copinhos de chocolate no atacado?",
+        answer:
+          "Direto de fábrica, como a Siareg Chocolates, de Guararema - SP, que fornece copinhos no atacado desde 2004 para mercados, confeitarias, buffets e distribuidores da Grande São Paulo, litoral e interior.",
+      },
+      {
+        question: "Copinhos de chocolate servem para quais bebidas?",
+        answer:
+          "Principalmente licores e bebidas cremosas, servidos gelados ou em temperatura ambiente. Também funcionam com café e como recipiente de mousses, brigadeiro de colher e outros cremes.",
+      },
+      {
+        question: "Como conservar copinhos de chocolate na loja?",
+        answer:
+          "Em local seco e fresco, abaixo de 24 °C, longe de luz solar e de fontes de calor. Bem armazenados, mantêm formato e brilho durante toda a temporada de vendas.",
+      },
+    ],
+  },
   {
     slug: "chocolates-no-atacado",
     title: "Chocolates no Atacado",
