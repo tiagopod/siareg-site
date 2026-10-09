@@ -33,8 +33,8 @@ export const site = {
       "5511975833699", // (11) 97583-3699
       "5511973880254", // (11) 97388-0254
     ],
-    // Vendedora com campanha de Google Ads própria — LP exclusiva em /vanessa
-    // aponta só para este número, fora do rodízio acima.
+    // Vendedora com campanhas próprias — as LPs /vanessa, /assis e /marilia
+    // apontam só para este número, fora do rodízio acima.
     vanessa: "5511972185912", // (11) 97218-5912
   },
 

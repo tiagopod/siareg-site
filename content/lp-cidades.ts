@@ -2,8 +2,8 @@
  * LPs REGIONAIS DE PÃO DE MEL — /assis e /marilia
  *
  * Página B2B de conversão única: Pão de Mel Siareg para mercadinhos, lojas de
- * conveniência e mercados da cidade. Todo CTA vai para o WhatsApp comercial
- * (rodízio de vendedores) com a cidade já na mensagem.
+ * conveniência e mercados da cidade. Todo CTA vai direto para o WhatsApp da
+ * Vanessa (site.whatsapp.vanessa), fora do rodízio, com a cidade já na mensagem.
  *
  * Para abrir uma cidade nova: adicione uma entrada em `cidades`, crie
  * `app/<slug>/page.tsx` copiando de app/assis/page.tsx e inclua a rota no sitemap.

@@ -560,19 +560,6 @@ export default function VanessaLpPage() {
         </p>
       </footer>
 
-      {/* ══════════════════════════════════════════════════════════
-          WHATSAPP FLUTUANTE — o FloatingWhatsApp global usa o rodízio e fica
-          desligado nesta rota; este aponta só para o número da campanha.
-      ══════════════════════════════════════════════════════════ */}
-      <a
-        href={waPaodemel}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Peça pelo WhatsApp"
-        className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-whatsapp text-white shadow-lg transition-transform hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-yellow"
-      >
-        <Whatsapp aria-hidden width={30} height={30} />
-      </a>
     </>
   );
 }

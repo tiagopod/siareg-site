@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { site, salesWa } from "@/content/site";
+import { site, wa as waLink } from "@/content/site";
 import { testimonials } from "@/content/testimonials";
 import { lpCidade, type Cidade } from "@/content/lp-cidades";
 import Reveal from "@/components/Reveal";
@@ -60,10 +60,10 @@ function MotivoIcon({ icon, className = "h-7 w-7" }: { icon: string; className?:
 export default function CityPaoDeMelLanding({ cidade }: { cidade: Cidade }) {
   const lp = lpCidade(cidade);
   const wa = {
-    hero: salesWa(lp.wa.hero),
-    tabela: salesWa(lp.wa.tabela),
-    comecar: salesWa(lp.wa.comecar),
-    duvida: salesWa(lp.wa.duvida),
+    hero: waLink(site.whatsapp.vanessa, lp.wa.hero),
+    tabela: waLink(site.whatsapp.vanessa, lp.wa.tabela),
+    comecar: waLink(site.whatsapp.vanessa, lp.wa.comecar),
+    duvida: waLink(site.whatsapp.vanessa, lp.wa.duvida),
   };
   const reviews = lp.depoimentos.indices.map((i) => testimonials.reviews[i]);
 
