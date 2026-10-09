@@ -9,7 +9,7 @@ export default function FloatingWhatsApp() {
   const isHome = pathname === "/";
 
   // LP exclusiva de campanha já tem os próprios CTAs de WhatsApp para a vendedora
-  if (pathname === "/vanessa") return null;
+  if (pathname === "/vanessa" || pathname === "/assis" || pathname === "/marilia") return null;
 
   return (
     <a

@@ -25,7 +25,7 @@ import {
 import Reveal from "@/components/Reveal";
 import JsonLd from "@/components/JsonLd";
 import { faqPage } from "@/lib/jsonld";
-import { Whatsapp, Mail, Truck, Store, Cart, Download, ArrowRight, Phone } from "@/components/icons";
+import { Whatsapp, Mail, Truck, Store, Cart, Download, ArrowRight } from "@/components/icons";
 
 // ─── SEO ────────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
@@ -91,9 +91,9 @@ function BenefitIcon({ icon, className }: { icon: string; className?: string }) 
 // ─── Star rating ─────────────────────────────────────────────────────────────
 function Stars({ count = 5 }: { count?: number }) {
   return (
-    <span className="flex gap-0.5" aria-label={`${count} estrelas`}>
+    <span className="flex gap-0.5" role="img" aria-label={`${count} de 5 estrelas`}>
       {Array.from({ length: count }).map((_, i) => (
-        <svg key={i} viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 text-gold">
+        <svg key={i} aria-hidden viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 text-gold">
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
       ))}
@@ -115,7 +115,7 @@ function WaButton({
 }) {
   const sizeClass =
     size === "lg"
-      ? "px-10 py-5 text-base"
+      ? "px-6 py-4 text-base sm:px-10 sm:py-5"
       : size === "sm"
       ? "px-6 py-3 text-xs"
       : "px-8 py-4 text-sm";
@@ -124,9 +124,9 @@ function WaButton({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-3 rounded-full bg-[#25D366] font-heading font-semibold uppercase tracking-wider text-white shadow-lg transition-all duration-200 hover:scale-[1.03] hover:shadow-xl ${sizeClass} ${className}`}
+      className={`inline-flex min-h-[48px] w-full items-center justify-center gap-3 rounded-full bg-whatsapp text-center font-heading font-semibold uppercase tracking-wider text-ink shadow-lg transition-all duration-200 hover:scale-[1.03] hover:bg-whatsapp-hover hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-yellow sm:w-auto ${sizeClass} ${className}`}
     >
-      <Whatsapp width={20} height={20} />
+      <Whatsapp aria-hidden width={20} height={20} className="shrink-0" />
       {label}
     </a>
   );
@@ -180,13 +180,13 @@ export default function LpComercialPage() {
               </Reveal>
 
               <Reveal delay={0.18}>
-                <div className="mt-8 flex flex-wrap gap-4">
+                <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                   <WaButton href={waRevendedor} label={hero.ctaPrimary} size="lg" />
                   <a
                     href={site.catalogPdf}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-cream/40 px-8 py-5 font-heading text-base font-semibold uppercase tracking-wider text-cream transition-colors duration-200 hover:border-cream hover:bg-cream/10"
+                    className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full border-2 border-cream/60 px-8 py-4 font-heading text-base font-semibold uppercase tracking-wider text-cream transition-colors duration-200 hover:border-cream hover:bg-cream/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-yellow sm:w-auto sm:py-5"
                   >
                     <Download width={18} height={18} />
                     {hero.ctaSecondary}
@@ -244,7 +244,7 @@ export default function LpComercialPage() {
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
                   {/* Google G */}
-                  <svg viewBox="0 0 24 24" className="h-6 w-6">
+                  <svg aria-hidden viewBox="0 0 24 24" className="h-6 w-6">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
                     <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" />
@@ -276,10 +276,14 @@ export default function LpComercialPage() {
               <div className="w-full overflow-hidden sm:w-auto sm:flex-1">
                 <div className="flex animate-marquee gap-8">
                   {[...socialProof.partnerLogos, ...socialProof.partnerLogos].map((logo, idx) => (
-                    <div key={idx} className="flex shrink-0 items-center justify-center">
+                    <div
+                      key={idx}
+                      aria-hidden={idx >= socialProof.partnerLogos.length || undefined}
+                      className="flex shrink-0 items-center justify-center"
+                    >
                       <Image
                         src={logo.src}
-                        alt={logo.name}
+                        alt={idx < socialProof.partnerLogos.length ? logo.name : ""}
                         width={90}
                         height={36}
                         className="h-9 w-auto object-contain opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0"
@@ -369,7 +373,7 @@ export default function LpComercialPage() {
                     <h3 className="font-heading text-base font-bold uppercase tracking-wide text-cocoa-700">
                       {cat.name}
                     </h3>
-                    <p className="mt-1.5 font-body text-xs normal-case leading-relaxed tracking-normal text-ink/60">
+                    <p className="mt-1.5 font-body text-sm normal-case leading-relaxed tracking-normal text-ink/70">
                       {cat.description}
                     </p>
                   </div>
@@ -379,12 +383,12 @@ export default function LpComercialPage() {
           </div>
 
           <Reveal delay={0.2}>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
               <a
                 href={site.catalogPdf}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-yellow gap-2"
+                className="btn-yellow min-h-[48px] gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cocoa-700"
               >
                 <Download width={16} height={16} />
                 {productsHighlight.cta}
@@ -416,6 +420,7 @@ export default function LpComercialPage() {
                   {/* Step connector (desktop) */}
                   {idx < howItWorks.steps.length - 1 && (
                     <ArrowRight
+                      aria-hidden
                       width={24}
                       height={24}
                       className="absolute -right-3 top-1/2 hidden -translate-y-1/2 text-gold/40 sm:block"
@@ -510,10 +515,10 @@ export default function LpComercialPage() {
             {faq.items.map((item, idx) => (
               <Reveal key={idx} delay={idx * 0.05}>
                 <details className="group rounded-2xl bg-white p-6 shadow-sm open:shadow-md">
-                  <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-heading text-sm font-semibold uppercase tracking-wide text-cocoa-700 marker:content-none">
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-4 rounded-lg font-heading text-sm font-semibold uppercase tracking-wide text-cocoa-700 marker:content-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cocoa-700 [&::-webkit-details-marker]:hidden">
                     {item.q}
-                    <span className="mt-0.5 shrink-0 text-gold transition-transform group-open:rotate-45">
-                      <svg viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
+                    <span className="mt-0.5 shrink-0 text-cocoa transition-transform group-open:rotate-45">
+                      <svg aria-hidden viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
                         <path d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                       </svg>
                     </span>
@@ -524,7 +529,7 @@ export default function LpComercialPage() {
                       href={waRevendedor}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-semibold text-[#25D366] hover:underline"
+                      className="font-semibold text-[#0B7A43] underline underline-offset-2 hover:text-cocoa-700"
                     >
                       Fale conosco no WhatsApp.
                     </a>
@@ -535,8 +540,17 @@ export default function LpComercialPage() {
           </div>
 
           <Reveal delay={0.15}>
-            <div className="mt-10 text-center">
+            <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
               <WaButton href={waRevendedor} label="Tirar dúvidas agora" size="md" />
+              <a
+                href={site.catalogPdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border-2 border-cocoa px-8 py-4 font-heading text-sm font-semibold uppercase tracking-wider text-cocoa-700 transition-colors duration-200 hover:bg-cocoa hover:text-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cocoa-700"
+              >
+                <Download aria-hidden width={16} height={16} />
+                {ctaFinal.ctaCatalog}
+              </a>
             </div>
           </Reveal>
         </div>
@@ -567,7 +581,7 @@ export default function LpComercialPage() {
                 <WaButton href={waComecar} label={ctaFinal.ctaWa} size="lg" />
                 <a
                   href={`mailto:${site.contact.email}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-cream/40 px-8 py-5 font-heading text-base font-semibold uppercase tracking-wider text-cream transition-colors duration-200 hover:border-cream hover:bg-cream/10"
+                  className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full border-2 border-cream/60 px-8 py-4 font-heading text-base font-semibold uppercase tracking-wider text-cream transition-colors duration-200 hover:border-cream hover:bg-cream/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-yellow sm:w-auto sm:py-5"
                 >
                   <Mail width={18} height={18} />
                   {ctaFinal.ctaEmail}
@@ -577,12 +591,13 @@ export default function LpComercialPage() {
 
             <Reveal delay={0.16}>
               <div className="mt-6 flex items-center justify-center gap-2 font-body text-sm normal-case tracking-normal text-cream/60">
-                <Phone width={15} height={15} />
+                <Whatsapp aria-hidden width={15} height={15} />
                 <a
                   href={`https://wa.me/${site.whatsapp.sales}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-cream/80 hover:text-cream hover:underline"
+                  aria-label={`WhatsApp ${site.contact.phoneDisplay}`}
+                  className="font-semibold text-cream/80 underline-offset-2 hover:text-cream hover:underline"
                 >
                   {site.contact.phoneDisplay}
                 </a>
@@ -602,7 +617,7 @@ export default function LpComercialPage() {
                 {ctaFinal.trustLines.map((line) => (
                   <span
                     key={line}
-                    className="flex items-center gap-1.5 font-body text-xs normal-case tracking-normal text-cream/50"
+                    className="flex items-center gap-1.5 font-body text-xs normal-case tracking-normal text-cream/70"
                   >
                     <span className="h-1 w-1 rounded-full bg-gold" />
                     {line}
@@ -642,7 +657,7 @@ export default function LpComercialPage() {
                 href={site.catalogPdf}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex shrink-0 items-center gap-2 rounded-full bg-chocolate px-8 py-4 font-heading text-sm font-semibold uppercase tracking-wider text-brand-yellow shadow transition-transform hover:scale-[1.03]"
+                className="inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 rounded-full bg-chocolate px-8 py-4 font-heading text-sm font-semibold uppercase tracking-wider text-brand-yellow shadow transition-transform hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-chocolate"
               >
                 <Download width={16} height={16} />
                 {ctaFinal.ctaCatalog}

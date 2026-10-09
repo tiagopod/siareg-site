@@ -36,8 +36,8 @@ const waHero = salesWa(
 const waCatalog = salesWa(campanhaData.finalCta.catalogMessage);
 
 const badgeClasses: Record<string, string> = {
-  gold: "bg-gold text-white",
-  rose: "bg-rose text-white",
+  gold: "bg-gold text-chocolate",
+  rose: "bg-rose text-chocolate",
   cocoa: "bg-cocoa text-cream",
 };
 
@@ -73,9 +73,9 @@ const iconMap: Record<string, React.ReactNode> = {
 
 function Stars({ count = 5 }: { count?: number }) {
   return (
-    <div className="flex gap-0.5">
+    <div className="flex gap-0.5" role="img" aria-label={`${count} de 5 estrelas`}>
       {Array.from({ length: count }).map((_, i) => (
-        <svg key={i} viewBox="0 0 24 24" fill="#C99B44" className="h-4 w-4">
+        <svg key={i} aria-hidden viewBox="0 0 24 24" fill="#C99B44" className="h-4 w-4">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
         </svg>
       ))}
@@ -89,7 +89,7 @@ export default function CampanhaPage() {
   const { hero, urgency, kits, reasons, featuredReview, finalCta } = campanhaData;
 
   return (
-    <main>
+    <>
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#fdf0f0] via-[#fef7e9] to-[#fdf0f0]">
@@ -110,8 +110,8 @@ export default function CampanhaPage() {
             <div className="order-2 lg:order-1">
               <Reveal>
                 {/* Eyebrow */}
-                <span className="inline-flex items-center gap-2 rounded-full bg-rose/20 px-4 py-1.5 font-body text-sm normal-case tracking-normal text-rose">
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 flex-shrink-0">
+                <span className="inline-flex items-center gap-2 rounded-full bg-rose/20 px-4 py-1.5 font-body text-sm normal-case tracking-normal text-cocoa-700">
+                  <svg aria-hidden viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 flex-shrink-0 text-rose">
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z" />
                   </svg>
                   {hero.eyebrow}
@@ -127,19 +127,19 @@ export default function CampanhaPage() {
                 </p>
 
                 {/* CTAs */}
-                <div className="mt-8 flex flex-wrap gap-4">
+                <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                   <a
                     href={waHero}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2.5 rounded-full bg-[#25D366] px-7 py-3.5 font-heading text-sm font-semibold uppercase tracking-wider text-white shadow-lg shadow-[#25D366]/30 transition hover:bg-[#1ebe5d] hover:shadow-[#25D366]/40"
+                    className="inline-flex min-h-[48px] items-center justify-center gap-2.5 rounded-full bg-whatsapp px-7 py-3.5 font-heading text-sm font-semibold uppercase tracking-wider text-ink shadow-lg shadow-whatsapp/30 transition hover:bg-whatsapp-hover hover:shadow-whatsapp/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-yellow"
                   >
                     <Whatsapp className="h-5 w-5" />
                     {hero.ctaLabel}
                   </a>
                   <a
                     href={hero.ctaSecondaryHref}
-                    className="inline-flex items-center gap-2 rounded-full border-2 border-cocoa px-7 py-3.5 font-heading text-sm font-semibold uppercase tracking-wider text-cocoa-700 transition hover:bg-cocoa hover:text-cream"
+                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border-2 border-cocoa px-7 py-3.5 font-heading text-sm font-semibold uppercase tracking-wider text-cocoa-700 transition hover:bg-cocoa hover:text-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cocoa-700"
                   >
                     {hero.ctaSecondaryLabel}
                     <ArrowRight className="h-4 w-4" />
@@ -179,7 +179,7 @@ export default function CampanhaPage() {
                 </div>
                 {/* Floating badge */}
                 <div className="absolute -bottom-4 -right-4 rounded-2xl bg-white px-4 py-3 shadow-xl ring-1 ring-rose/20">
-                  <p className="font-script text-xl text-rose">Com carinho</p>
+                  <p className="font-script text-xl text-cocoa">Com carinho</p>
                   <p className="font-body text-xs normal-case tracking-normal text-ink/60">para ela ❤</p>
                 </div>
               </div>
@@ -191,25 +191,33 @@ export default function CampanhaPage() {
       {/* ── FAIXA DE URGÊNCIA / PRAZO ───────────────────────────────────── */}
       <section className="bg-chocolate-texture py-5">
         <div className="container-x flex flex-col items-center justify-center gap-2 text-center sm:flex-row sm:gap-3">
-          <span className="font-body text-base normal-case tracking-normal text-cream/85">
-            {urgency.text}
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-yellow px-4 py-1 font-heading text-sm font-bold uppercase tracking-wide text-chocolate shadow-sm">
-            {/* Clock icon */}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 6v6l4 2" />
-            </svg>
-            {campanhaData.prazoFechamentoPedido}
-          </span>
-          <span className="font-body text-base normal-case tracking-normal text-cream/85">
-            {urgency.suffix}
-          </span>
+          {campanhaData.prazoAtivo ? (
+            <>
+              <span className="font-body text-base normal-case tracking-normal text-cream/85">
+                {urgency.text}
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-yellow px-4 py-1 font-heading text-sm font-bold uppercase tracking-wide text-chocolate shadow-sm">
+                {/* Clock icon */}
+                <svg aria-hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+                {campanhaData.prazoFechamentoPedido}
+              </span>
+              <span className="font-body text-base normal-case tracking-normal text-cream/85">
+                {urgency.suffix}
+              </span>
+            </>
+          ) : (
+            <span className="font-body text-base normal-case tracking-normal text-cream/85">
+              {urgency.offSeasonText}
+            </span>
+          )}
         </div>
       </section>
 
       {/* ── GRID DE KITS / PRODUTOS ─────────────────────────────────────── */}
-      <section className="bg-cream py-16 sm:py-24">
+      <section id="presentes" className="scroll-mt-24 bg-cream py-16 sm:py-24">
         <div className="container-x">
           <Reveal>
             <div className="text-center">
@@ -264,7 +272,8 @@ export default function CampanhaPage() {
                           href={waKitLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 font-heading text-xs font-semibold uppercase tracking-wider text-white transition hover:bg-[#1ebe5d]"
+                          aria-label={`Consultar no WhatsApp: ${kit.name}`}
+                          className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-5 py-3 font-heading text-xs font-semibold uppercase tracking-wider text-ink transition hover:bg-whatsapp-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cocoa-700"
                         >
                           <Whatsapp className="h-4 w-4" />
                           Consultar no WhatsApp
@@ -382,37 +391,40 @@ export default function CampanhaPage() {
             {/* Heart decoration */}
             <div className="mb-6 flex justify-center">
               <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-rose/20 text-rose">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="h-8 w-8">
+                <svg aria-hidden viewBox="0 0 24 24" fill="currentColor" className="h-8 w-8">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z" />
                 </svg>
               </span>
             </div>
 
-            <p className="font-script text-4xl text-brand-yellow sm:text-5xl">
+            {/* h2 em script + normal-case: o título curto é o cabeçalho; a frase longa vai em texto corrido */}
+            <h2 className="font-script text-4xl font-normal normal-case tracking-normal text-brand-yellow sm:text-5xl">
               {finalCta.headline}
-            </p>
-            <h2 className="mx-auto mt-3 max-w-2xl text-2xl font-bold text-cream sm:text-3xl">
-              {finalCta.subheadline}
             </h2>
+            <p className="mx-auto mt-3 max-w-xl font-body text-lg normal-case leading-relaxed tracking-normal text-cream/90 sm:text-xl">
+              {finalCta.subheadline}
+            </p>
 
-            {/* Prazo destacado */}
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-cream/20 bg-cream/10 px-6 py-2">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-brand-yellow">
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 6v6l4 2" />
-              </svg>
-              <span className="font-body text-sm normal-case tracking-normal text-cream/80">
-                Pedidos até <strong className="text-brand-yellow">{campanhaData.prazoFechamentoPedido}</strong> para entrega antes do Dia das Mães ({campanhaData.dataDiadasMaes})
-              </span>
-            </div>
+            {/* Prazo destacado — só na temporada */}
+            {campanhaData.prazoAtivo && (
+              <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-cream/20 bg-cream/10 px-6 py-2">
+                <svg aria-hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 shrink-0 text-brand-yellow">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+                <span className="font-body text-sm normal-case tracking-normal text-cream/80">
+                  Pedidos até <strong className="text-brand-yellow">{campanhaData.prazoFechamentoPedido}</strong> para entrega antes do Dia das Mães ({campanhaData.dataDiadasMaes})
+                </span>
+              </div>
+            )}
 
             {/* CTAs */}
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
               <a
                 href={waHero}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-full bg-[#25D366] px-8 py-4 font-heading text-base font-semibold uppercase tracking-wider text-white shadow-lg shadow-black/20 transition hover:bg-[#1ebe5d]"
+                className="inline-flex items-center justify-center gap-2.5 rounded-full bg-whatsapp px-8 py-4 font-heading text-base font-semibold uppercase tracking-wider text-ink shadow-lg shadow-black/20 transition hover:bg-whatsapp-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-yellow"
               >
                 <Whatsapp className="h-5 w-5" />
                 {finalCta.ctaLabel}
@@ -421,7 +433,7 @@ export default function CampanhaPage() {
                 href={site.catalogPdf}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-cream/30 px-8 py-4 font-heading text-base font-semibold uppercase tracking-wider text-cream transition hover:bg-cream/10"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-cream/50 px-8 py-4 font-heading text-base font-semibold uppercase tracking-wider text-cream transition hover:bg-cream/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-yellow"
               >
                 <Download className="h-5 w-5" />
                 {finalCta.catalogLabel}
@@ -431,6 +443,6 @@ export default function CampanhaPage() {
         </div>
       </section>
 
-    </main>
+    </>
   );
 }

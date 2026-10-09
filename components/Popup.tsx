@@ -17,7 +17,7 @@ export default function Popup() {
   useEffect(() => {
     // Show once per session, shortly after load (mirrors Popup Maker behavior).
     if (typeof window === "undefined") return;
-    if (pathname === "/vanessa") return; // LP exclusiva — sem popup de rodízio
+    if (pathname === "/vanessa" || pathname === "/assis" || pathname === "/marilia") return; // LP exclusiva — sem popup de rodízio
     if (sessionStorage.getItem("siareg_popup_seen")) return;
     const t = setTimeout(() => setOpen(true), 2500);
     return () => clearTimeout(t);

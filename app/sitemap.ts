@@ -18,6 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Campanhas (fora do menu, mas indexáveis e acessíveis por link direto)
     { url: `${BASE}/campanha-chocolates-siareg`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/siareg-comercial-m`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    // LPs regionais de Pão de Mel (B2B, indexáveis para busca local)
+    { url: `${BASE}/assis`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/marilia`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/politica-de-privacidade`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
 

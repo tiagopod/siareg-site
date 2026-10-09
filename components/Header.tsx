@@ -47,7 +47,7 @@ export default function Header() {
   }, [desktopProductsOpen]);
 
   // LP exclusiva de campanha — tem o próprio mini header, sem menu
-  if (pathname === "/vanessa") return null;
+  if (pathname === "/vanessa" || pathname === "/assis" || pathname === "/marilia") return null;
 
   const NavLink = ({ item }: { item: (typeof nav)[number] }) => (
     <Link

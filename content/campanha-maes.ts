@@ -12,6 +12,13 @@ export const campanhaData = {
   /** Ano vigente da campanha (apenas para exibição) */
   ano: "2025",
 
+  /**
+   * Liga/desliga o prazo na página. Deixe `false` fora da temporada: a faixa
+   * mostra `urgency.offSeasonText` e nenhuma data vencida aparece. Na temporada,
+   * atualize as duas datas abaixo e volte para `true`.
+   */
+  prazoAtivo: false as boolean,
+
   /** Data-limite editorial para pedidos chegarem a tempo */
   prazoFechamentoPedido: "9 de maio", // ex.: "9 de maio" (sexta antes do Dia das Mães)
 
@@ -25,8 +32,8 @@ export const campanhaData = {
     subheadline:
       "Chocolates artesanais feitos com carinho para tornar esse dia inesquecível. Trufas, Pão de Mel e muito mais — direto da nossa fábrica em Guararema‑SP.",
     ctaLabel: "Pedir no WhatsApp",
-    ctaSecondaryLabel: "Ver todos os produtos",
-    ctaSecondaryHref: "/produtos",
+    ctaSecondaryLabel: "Ver opções de presente",
+    ctaSecondaryHref: "#presentes",
     /** Imagem principal do hero (produto mais representativo) */
     image: "/images/products/estojo-trufas.webp",
     imageAlt: "Estojo de Trufas Siareg — presente perfeito para o Dia das Mães",
@@ -37,6 +44,8 @@ export const campanhaData = {
     text: "Garanta o presente a tempo — pedidos até",
     highlightDate: true, // exibe a data em destaque
     suffix: "para entrega antes do Dia das Mães.",
+    /** Texto da faixa quando `prazoAtivo` é false (sem data). */
+    offSeasonText: "Encomende com antecedência e garanta o presente dela a tempo.",
     icon: "⏰", // Apenas para referência; o componente usa SVG inline
   },
 
@@ -109,7 +118,7 @@ export const campanhaData = {
       {
         icon: "star",
         title: "5,0 ★ no Google",
-        text: "Mais de 52 avaliações — clientes reais que aprovam o sabor e o atendimento da Siareg.",
+        text: "52 avaliações de clientes reais que aprovam o sabor e o atendimento da Siareg.",
       },
       {
         icon: "heart",
@@ -136,7 +145,7 @@ export const campanhaData = {
   finalCta: {
     headline: "Não deixe para última hora",
     subheadline:
-      "Pedidos fecham antes do Dia das Mães. Fale com nosso time agora e garanta o presente que ela merece.",
+      "Fale com nosso time agora e garanta a tempo o presente que ela merece.",
     ctaLabel: "Pedir agora no WhatsApp",
     catalogLabel: "Baixar catálogo completo",
     catalogMessage: "Clique aqui para baixar nosso catálogo completo e conhecer toda a linha Siareg.",

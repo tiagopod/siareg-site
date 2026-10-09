@@ -113,7 +113,7 @@ export const productsHighlight = {
     {
       name: "Pão de Mel",
       code: "Cód. 100",
-      description: "O queridinhos que sai sozinho — receita artesanal, sabor inconfundível.",
+      description: "O queridinho que sai sozinho — receita artesanal, sabor inconfundível.",
       image: "/images/products/paodemel.webp",
     },
     {
@@ -189,27 +189,27 @@ export const faq = {
   items: [
     {
       q: "Existe pedido mínimo para comprar no atacado?",
-      a: "Sim, trabalhamos com pedido mínimo para garantir condições de fábrica. O valor exato varia conforme o mix escolhido — fale conosco no WhatsApp para uma cotação personalizada.",
+      a: "Sim, trabalhamos com pedido mínimo para garantir condições de fábrica. O valor exato varia conforme o mix escolhido — diga quais produtos interessam e enviamos uma cotação personalizada.",
     },
     {
       q: "Quais regiões vocês atendem?",
-      a: "Atendemos SP capital, Grande SP, Interior e Litoral, além de outros estados. Entre em contato para confirmar disponibilidade e frete para sua cidade.",
+      a: "Atendemos SP capital, Grande SP, Interior e Litoral, além de outros estados. Informe sua cidade para confirmarmos disponibilidade e frete.",
     },
     {
       q: "Quais são os prazos de entrega?",
-      a: "Os prazos dependem do seu endereço e do volume do pedido. Nosso time comercial informa o prazo exato no momento do pedido via WhatsApp.",
+      a: "Os prazos dependem do seu endereço e do volume do pedido. Nosso time comercial informa o prazo exato antes de você fechar o pedido.",
     },
     {
       q: "Quais formas de pagamento são aceitas?",
-      a: "Trabalhamos com as principais formas de pagamento comercial. Consulte as condições disponíveis para o seu perfil diretamente com nossa equipe.",
+      a: "Trabalhamos com as principais formas de pagamento comercial. As condições disponíveis para o seu perfil são enviadas junto com a cotação.",
     },
     {
       q: "Posso comprar uma variedade de produtos no mesmo pedido?",
-      a: "Sim! Você pode montar um mix com diferentes linhas — Pão de Mel, Trufas, Copinhos, Páscoa e mais. Fale conosco para montarmos o pedido ideal para o seu negócio.",
+      a: "Sim! Você pode montar um mix com diferentes linhas — Pão de Mel, Trufas, Copinhos, Páscoa e mais. Ajudamos a montar o pedido ideal para o seu negócio.",
     },
     {
       q: "Vocês têm catálogo para eu avaliar a linha completa?",
-      a: "Sim, disponibilizamos um catálogo digital completo com todos os produtos e códigos. Clique no botão abaixo para baixar ou peça pelo WhatsApp.",
+      a: "Sim, disponibilizamos um catálogo digital completo com todos os produtos e códigos. Baixe pelo botão “Baixar catálogo” logo abaixo ou peça o PDF ao nosso time.",
     },
   ],
 } as const;
@@ -219,7 +219,7 @@ export const faq = {
 // ─────────────────────────────────────────────────────────────
 export const ctaFinal = {
   eyebrow: "Pronto para começar?",
-  title: "Ligue ou chame agora no WhatsApp",
+  title: "Chame agora no WhatsApp",
   subtitle:
     "Nossa equipe comercial está disponível para tirar dúvidas, enviar cotação e fechar seu primeiro pedido.",
   ctaWa: "Chamar no WhatsApp",

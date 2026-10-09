@@ -123,10 +123,11 @@ export const productsHighlight = {
   subtitle: "Cada categoria tem embalagem pronta para gôndola, balcão e presente.",
   categories: [
     {
-      name: "Pão de Mel",
-      code: "Cód. 100",
-      description: "O queridinho que sai sozinho — receita artesanal, sabor inconfundível.",
-      image: "/images/products/paodemel.webp",
+      // O Pão de Mel já é o assunto do hero e do spotlight — aqui entra a versão mini.
+      name: "Mini Pão de Mel",
+      code: "Cód. 124",
+      description: "O mesmo sabor em porção individual — ótimo para eventos, kits e venda avulsa.",
+      image: "/images/products/paodemel-mini.webp",
     },
     {
       name: "Trufas",
@@ -196,11 +197,11 @@ export const faq = {
   items: [
     {
       q: "Existe pedido mínimo para comprar no atacado?",
-      a: "Sim, trabalhamos com pedido mínimo para garantir condições de fábrica. O valor exato varia conforme o mix escolhido — pedimos uma cotação personalizada no WhatsApp.",
+      a: "Sim, trabalhamos com pedido mínimo para garantir condições de fábrica. O valor exato varia conforme o mix escolhido — diga quais produtos interessam e enviamos uma cotação personalizada.",
     },
     {
       q: "Quais regiões vocês atendem?",
-      a: "Atendemos SP capital, Grande SP, Interior e Litoral, além de outros estados. Fale conosco para confirmar disponibilidade e frete para sua cidade.",
+      a: "Atendemos SP capital, Grande SP, Interior e Litoral, além de outros estados. Informe sua cidade para confirmarmos disponibilidade e frete.",
     },
     {
       q: "Quais são os prazos de entrega?",

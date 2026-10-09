@@ -13,7 +13,7 @@ export default function Footer() {
   const regions = site.footer.regions;
 
   // LP exclusiva de campanha — tem o próprio mini footer, sem links
-  if (pathname === "/vanessa") return null;
+  if (pathname === "/vanessa" || pathname === "/assis" || pathname === "/marilia") return null;
 
   return (
     <footer className="bg-chocolate-texture text-cream">
